@@ -22,3 +22,5 @@ services:
       - /app/node_modules
     depends_on:
       - mysql
+    env_file:
+      - ./env/back.env
