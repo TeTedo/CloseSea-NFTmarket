@@ -1,2 +1,4 @@
 window에서 사용 x
 리눅스 or mac(확인안해봄) 에서만 가능
+
+docker로 실행시 mysql세팅, npm install 안해도 된다.

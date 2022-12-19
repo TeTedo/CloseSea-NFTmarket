@@ -1,0 +1,24 @@
+version: "3.8"
+services:
+  mysql:
+    image: mysql:8.0
+    env_file:
+      - ./env/mysql.env
+  front:
+    build: ./front
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./back:/app
+      - /app/node_modules
+    stdin_open: true
+    tty: true
+  back:
+    build: ./back
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./back:/app
+      - /app/node_modules
+    depends_on:
+      - mysql
