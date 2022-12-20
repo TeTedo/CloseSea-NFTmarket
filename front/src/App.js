@@ -1,10 +1,14 @@
-
-import './App.css';
+import "./App.css";
+import Login from "./page/Login";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">'
-        sdflnsdlf     
+    <div className="App">
+      <Routes>
+        {/* path="/Login" 변경전 */}
+        <Route path="/" element={<Login />} />
+      </Routes>
     </div>
   );
 }
