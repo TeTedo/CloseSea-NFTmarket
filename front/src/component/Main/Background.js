@@ -1,5 +1,5 @@
 import React from 'react'
-import {MainVisual,CircleBox,MainSlideBox,MainCircleInner} from "./BackgroundConponent"
+import {MainVisual,CircleBox,MainSlideBox,MainCircleInner,MainContent,MainText} from "./BackgroundConponent"
 
 function MainBackground() {
   return (
@@ -10,6 +10,13 @@ function MainBackground() {
         <MainCircleInner>
           <img src="https://metatoydragonz.io/img/main/main_blink1.png" alt="" />
         </MainCircleInner>
+        <MainContent>
+          <MainText>
+            
+            <div>WELCOM,</div>
+            <div>BABY</div>
+          </MainText>
+        </MainContent>
     </div>
   )
 }
