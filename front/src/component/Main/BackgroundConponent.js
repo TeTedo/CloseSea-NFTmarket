@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 // 배경색
 const BackGround = styled.div`
-    background-color: #189cf4;
+    
     width: 100vw;
     height: 100vh;
 `;
@@ -22,6 +22,7 @@ const MainVisual = styled.div`
     transform: scale(1);
     z-index: 999;
 `
+// 오른쪽 노란원
 const CircleBox = styled.div`
     position: absolute;    
     right: -60px;
@@ -35,6 +36,7 @@ const CircleBox = styled.div`
     transition: 1.2s;
     transform: scale(1);
 `
+// 왼쪽 별 : after , 오른쪽 별 : 
 const MainSlideBox = styled.div`
     &::after {
         content: '';
@@ -64,6 +66,15 @@ const MainCircleInner = styled.div`
     right: 20%;
     top: 15%
 `
+const MainContent = styled.div`
+    position: absolute;
+    left: 10%;
+`
+const MainText = styled.div`
+    font-size: 11em;
+    font-weight: 600;
+`
 
 
-export {BackGround,MainVisual,CircleBox,MainSlideBox,MainCircleInner} ;
+
+export {BackGround,MainVisual,CircleBox,MainSlideBox,MainCircleInner,MainContent,MainText} ;
