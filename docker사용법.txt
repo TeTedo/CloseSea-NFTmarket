@@ -2,3 +2,18 @@ window에서 사용 x
 리눅스 or mac(확인안해봄) 에서만 가능
 
 docker로 실행시 mysql세팅, npm install 안해도 된다.
+
+mac : 도커 설치후 
+터미널에서
+docker-compose up --build
+종료
+docker-compose down
+
+리눅스 :
+리눅스는 백,mysql은 도커로, 프론트는 npm start로 직접 실행시켜야 한다.
+docker-compose up mysql back
+cd front/
+npm start
+
+종료
+docker-compose down
