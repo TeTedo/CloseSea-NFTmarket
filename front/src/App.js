@@ -1,15 +1,16 @@
-import './App.css';
-import {
-  Routes,
-  Route,
-} from "react-router-dom";
-import Main from './page/Main';
+import "./App.css";
+import Login from "./page/Login";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Main/>} />
-    </Routes>
+    <div className="App">
+      <Routes>
+        {/* path="/Login" 변경전 */}
+        {/* 테스트스테스테스테스테스ㅡ */}
+        <Route path="/" element={<Login />} />
+      </Routes>
+    </div>
   );
 }
 
