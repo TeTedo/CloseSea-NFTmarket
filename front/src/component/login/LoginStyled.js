@@ -22,19 +22,25 @@ const TextDiv = styled.div`
 const LoginInput = styled.input`
   position: relative;
   top: 20%;
-  left: 10%;
+  left: 10%; // 정렬 임시
   color: white;
   background-color: #189cf4;
   width: 400px;
-  height: 20px;
+  height: 30px;
   border: 2px white dotted;
   margin-bottom: 100px;
 `;
 
-const styledButton = styled.button`
+const StyledButton = styled.button`
   position: relative;
+  top: 20%;
+  left: 10%; // 정렬 임시
   width: 400px;
-  height: 20px;
-  border: 2px white solid;
+  height: 30px;
+  border: 2px silver solid;
+  &:active {
+    background-color: lightslategrey;
+  }
 `;
-export { TitleDiv, TextDiv, LoginInput, styledButton };
+
+export { TitleDiv, TextDiv, LoginInput, StyledButton };
