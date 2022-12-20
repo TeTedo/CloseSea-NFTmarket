@@ -7,7 +7,6 @@ function App() {
     <div className="App">
       <Routes>
         {/* path="/Login" 변경전 */}
-        {/* 테스트 */}
         <Route path="/" element={<Login />} />
       </Routes>
     </div>
