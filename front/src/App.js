@@ -8,6 +8,7 @@ import { useState } from "react";
 import MenuBar from 'component/MenuBar'
 
 function App() {
+  // 로그인 확인
   const [isLogin,setIsLogin] = useState(false)
   return (
     <div className="App">
