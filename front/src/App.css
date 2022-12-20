@@ -1,0 +1,71 @@
+    body{
+    overflow: hidden;
+    }
+  @keyframes float_img {
+    0% {
+        transform: translate(0)
+    }
+  
+    65% {
+        transform: translateY(30px)
+    }
+  
+    to {
+        transform: translate(0)
+    }
+  }
+  .main_visual::before {
+    position: absolute;    
+    left: -60px;
+    top: 50%;
+    width: 152px;
+    height: 152px;
+    border-radius: 100%;
+    background: #fff;
+    opacity: 0.15;
+    content: '';
+    transition: 1s;
+    transform: scale(1);
+    z-index: 999;
+  }
+  .circle_box::before {
+    position: absolute;    
+    right: -60px;
+    top: 144px;
+    width: 248px;
+    height: 248px;
+    border-radius: 100%;
+    background: #ffd92e;
+    content: '';
+    z-index: 5;
+    transition: 1.2s;
+    transform: scale(1);
+  }
+  .main_slide_box::after {
+    content: '';
+    position: absolute;
+    left: 12%;
+    top: 22%;
+    width: 62px;
+    height: 87px;
+    animation: float_img 2.1s ease-in-out infinite;
+    background: url(https://metatoydragonz.io/img/main/bling01.png) no-repeat center;
+  }
+  .main_slide_box::before {
+    content: '';
+    position: absolute;
+    right: 20%;
+    top: 35%;
+    transform: translateY(-50%);
+    width: 62px;
+    height: 59px;
+    animation: float_img 2.4s ease-in-out infinite;
+    background: url(https://metatoydragonz.io/img/main/bling02.png) no-repeat center;
+  }
+  .main_circle_inner {
+    position: absolute;
+    right: 20%;
+    top: 15%
+  }
+  
+  
