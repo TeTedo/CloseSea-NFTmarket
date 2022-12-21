@@ -230,7 +230,7 @@ contract ERC20 is Context, IERC20, IERC20Metadata {
     ) internal virtual {
         require(from != address(0), "ERC20: transfer from the zero address");
         require(to != address(0), "ERC20: transfer to the zero address");
-
+    
         _beforeTokenTransfer(from, to, amount);
 
         uint256 fromBalance = _balances[from];

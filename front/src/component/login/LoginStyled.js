@@ -53,7 +53,6 @@ const StyledButton = styled.button`
 
   /* border: 2px silver solid; */
   border: 3px solid black;
-
   &:active {
     background-color: lightslategrey;
   }
