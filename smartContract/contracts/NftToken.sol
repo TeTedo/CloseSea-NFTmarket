@@ -10,8 +10,6 @@ contract NftToken is Ownable, ERC721A{
     uint public maxTokenNum;
     uint public mintPrice = 1 ether;
     uint mintLimit;
-
-    string public baseURI = "http://localhost:8000/metaData/";
     mapping(address => uint256) public mintCount;
 
     modifier mintRequire(uint _mintAmount){
@@ -21,8 +19,7 @@ contract NftToken is Ownable, ERC721A{
         _;
     }
 
-    constructor(string memory _name, string memory _symbol, uint256 _mintLimit, uint256 _collectionSize, string memory _baseURI)ERC721A(_name,_symbol, _mintLimit, _collectionSize){
-        baseURI = _baseURI;
+    constructor(string memory _name, string memory _symbol, uint256 _mintLimit, uint256 _collectionSize)ERC721A(_name,_symbol, _mintLimit, _collectionSize){
         mintLimit = _mintLimit;
     }
 
@@ -42,15 +39,21 @@ contract NftToken is Ownable, ERC721A{
         }
     }
 
-    // 토큰 URI
-    function tokenURI(uint _tokenId) override public view returns(string memory){
-        string memory tokenId = Strings.toString(_tokenId);
-        return string(abi.encodePacked(baseURI, tokenId));
-    }
-
     function numberMinted(address owner) public view returns (uint256) {
         return _numberMinted(owner);
     }
+
+    
+    // // metadata URI
+    string private _baseTokenURI = "http://localhost:8000/metaData/";
+
+    function _baseURI() internal view virtual override returns (string memory) {
+        return _baseTokenURI;
+    }
+
+    // function setBaseURI(string calldata baseURI) external onlyOwner {
+    //     _baseTokenURI = baseURI;
+    // }
 } 
 
 //d,d,5,100,"http://localhost:8000/metaData/"
