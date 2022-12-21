@@ -30,9 +30,15 @@ function MenuBar(props) {
           {props.isLogin ? (
             <UserText>MyPage</UserText>
           ) : (
+            <>
             <UserText onClick={() => {navigate("/Login")}}>
               Login
             </UserText>
+            <UserText onClick={() => {navigate("/SignUp")}}>
+              Sign Up
+            </UserText>
+            
+            </>
           )}
         </UserContent>
       </MenuContent>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import MainBackground from 'component/Main/Background'
-import { BackGround ,MainContent,MainText,SubText,NFTImg,Puppy,NFTContents,ImgText,MintingBtn,RightConent} from 'component/Main/BackgroundConponent'
+import { BackGround ,MainContent,MainText,SubText,NFTImg,Puppy,NFTContents,ImgText,MintingBtn,RightConent} from 'component/Main/BackgroundStyled.'
 
 
 function Main() {

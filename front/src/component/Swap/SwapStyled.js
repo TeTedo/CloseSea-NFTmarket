@@ -95,10 +95,11 @@ const SwapIcon = styled.div`
   align-items: center;
   border: 3px solid black;
   border-radius: 50%;
-  background-color: #58faf4;
+  background-color: #79C2F2;
+  transition: all 0.4s;
   cursor: pointer;
   :hover {
-    background-color: #189cf4;
+    background-color: #2680BD;
   }
 `;
 const SwapBot = styled.div`
@@ -131,10 +132,11 @@ const SwapBtn = styled.div`
   align-items: center;
   border-radius: 12px;
   font-size: 20px;
-  background-color: #58faf4;
+  background-color: #79C2F2;
   cursor: pointer;
+  transition: all 0.4s;
   :hover {
-    background-color: #189cf4;
+    background-color: #2680BD;
   }
 `;
 export {

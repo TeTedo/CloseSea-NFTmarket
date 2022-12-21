@@ -4,7 +4,7 @@ import {
   CircleBox,
   MainSlideBox,
   MainCircleInner,
-} from "./BackgroundConponent";
+} from "./BackgroundStyled.";
 
 function MainBackground() {
   return (
