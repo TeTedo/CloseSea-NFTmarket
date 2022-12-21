@@ -2,16 +2,16 @@ import React from "react";
 import styled from "styled-components";
 
 const MenuContent = styled.div`
+
   height: 100px;
   display: grid;
   grid-template-columns: 0.4fr 1fr 0.5fr;
   align-items: center;
 `;
-
 const MenuTitle = styled.div`
   text-align: center;
   font-weight: 600;
-  font-size: 50px;
+  font-size: 60px;
 `;
 
 const MenuText = styled.div`
@@ -20,9 +20,8 @@ const MenuText = styled.div`
 `;
 
 const TextContent = styled.div`
-  box-sizing: border-box;
-  font-size: 50px;
-  font-family: 600;
+  font-size: 40px;
+  font-weight: 600;
   padding: 20px;
   transition: all ease 0.4s;
   border-bottom: 5px solid transparent;
@@ -37,8 +36,12 @@ const UserContent = styled.div`
 `;
 
 const UserText = styled.div`
-  font-size: 40px;
+  font-size: 35px;
   font-weight: 600;
+  transition: all ease 0.4s;
+  &:hover{
+    color: white;
+  }
 `;
 
 export { MenuContent, MenuText, MenuTitle, TextContent, UserContent, UserText };
