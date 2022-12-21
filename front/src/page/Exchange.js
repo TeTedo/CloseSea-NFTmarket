@@ -1,26 +1,34 @@
 import React from "react";
 import {
-  TitleDiv,
-  HeaderWrap,
-  HeaderContent,
-  HeaderImage,
-  BodyWrap,
-  BodyContent,
+ExchangePosition,
+ExchangeTitle,
+ExchangeContent,
+SellBtn
 } from "component/exchange/ExchangeStyled";
-import TempNFT from "../image/Temp_NFT.png";
+import NftImg from "../image/index"
+import ExchangeComponent from "component/exchange/ExchangeComponent";
+import { useNavigate } from "react-router-dom";
 
 const Exchange = () => {
+  const navigate = useNavigate()
+  const NFTContent =[];
+  if (NftImg.length > 0) {   
+    for (let i = 0; i < NftImg.length; i++) {
+      NFTContent.push(<ExchangeComponent img={NftImg[i]} onClick ={()=>{navigate("/nftbuy/"+i)}}/>)
+    }
+  }
   return (
-    <TitleDiv>
-      <HeaderWrap>
-        테스트헤더
-        <HeaderContent>헤더컨텐트</HeaderContent>
-        <HeaderImage src={TempNFT}></HeaderImage>
-      </HeaderWrap>
-      <BodyWrap>
-        <BodyContent>바디컨텐트</BodyContent>
-      </BodyWrap>
-    </TitleDiv>
+    <ExchangePosition>
+      <ExchangeTitle>
+        NFT Shop
+        <SellBtn>
+          Sell
+        </SellBtn>
+      </ExchangeTitle>
+    <ExchangeContent>
+      {NFTContent.length > 0 ? NFTContent.map(e => e) : null}
+    </ExchangeContent>
+    </ExchangePosition>
   );
 };
 
