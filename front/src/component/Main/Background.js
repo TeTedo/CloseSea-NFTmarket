@@ -10,7 +10,6 @@ function MainBackground() {
   return (
     <div>
       <MainVisual />
-      <CircleBox />
       <MainSlideBox />
       <MainCircleInner>
         <img src="https://metatoydragonz.io/img/main/main_blink1.png" alt="" />

@@ -20,7 +20,7 @@ function MenuBar(props) {
         </MenuTitle>
         {/* 스왑 페이지 이동 */}
         <MenuText>
-          <TextContent>Shop</TextContent>
+          <TextContent onClick={()=>{navigate("/exchange")}}>Shop</TextContent>
           <TextContent onClick={() => {navigate("/swap")}}>
             Swap
           </TextContent>
