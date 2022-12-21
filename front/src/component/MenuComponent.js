@@ -32,7 +32,8 @@ const TextContent = styled.div`
 `;
 
 const UserContent = styled.div`
-  text-align: center;
+  display: flex;
+  justify-content: space-around;
 `;
 
 const UserText = styled.div`

@@ -28,11 +28,10 @@ const LoginInput = styled.input`
   top: 14%;
   left: 10%; // 정렬 임시
   color: black;
-  background-color: #189cf4;
   width: 370px;
   height: 30px;
   border: 3px black solid;
-  padding: 5px 10px;
+  padding: 10px;
   font-size: 20px;
   background-color: white;
   border-radius: 8px;
