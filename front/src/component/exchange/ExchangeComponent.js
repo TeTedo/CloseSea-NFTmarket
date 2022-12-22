@@ -7,7 +7,6 @@ import {
   NFTPictureSize,
   NFTBuyBtn,
 } from "./ExchangeStyled";
-import img from "../../image/index";
 function ExchangeComponent(props) {
   return (
     <TestBox onClick={props.onClick}>
