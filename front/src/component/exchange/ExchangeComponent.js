@@ -11,10 +11,10 @@ function ExchangeComponent(props) {
   return (
     <TestBox onClick={props.onClick}>
       <NFTPictureSize>
-        <NFTPicture src={props.img} />
+        <NFTPicture src={`image${props.id}.png`} />
       </NFTPictureSize>
-      <NFTNumber>123</NFTNumber>
-      <NFTPrice>0.8ETH</NFTPrice>
+      <NFTNumber>{props.id}</NFTNumber>
+      <NFTPrice>{props.price}</NFTPrice>
       <NFTBuyBtn>⚡️Buy Now</NFTBuyBtn>
     </TestBox>
   );
