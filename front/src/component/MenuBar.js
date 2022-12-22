@@ -56,6 +56,7 @@ function MenuBar(props) {
               </UserText>
             </>
           )}
+          <ConnectWalletBtn />
         </UserContent>
       </MenuContent>
     </div>
