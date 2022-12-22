@@ -91,10 +91,10 @@ const NFTContents = styled.div`
     opacity:${(props)=> props.opacity||"0"};
     transform: ${(props)=> props.transform||"translateY(20px)"}; 
     position: relative;
-    top: 50%;
+    top: 20px;
     /* bottom : 50px; */
     right: 3%;
-    z-index: 1000;
+    z-index: 0;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 `
@@ -122,12 +122,7 @@ const NFTImg = styled.img`
         top: 50px;
     }
 `
-const Puppy = styled.img`
-width: 200px;
-position: absolute;
-top:9.5%;
-left: 3.2%;
-`
+
 const ImgText = styled.div`
     opacity:${(props)=> props.opacity||"0"};
     transform: ${(props)=> props.transform||"translateY(20px)"}; 
@@ -167,7 +162,6 @@ export {
   MainText,
   SubText,
   NFTImg,
-  Puppy,
   NFTContents,
   ImgText,
   MintingBtn,
