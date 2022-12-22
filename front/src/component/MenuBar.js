@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   MenuContent,
@@ -9,7 +9,9 @@ import {
   UserText,
 } from "./MenuComponent";
 import ConnectWalletBtn from "./ConnectWalletBtn";
-function MenuBar(props) {
+import { Context } from "App";
+function MenuBar({ setAccount, setWeb3 }) {
+  const { account } = useContext(Context);
   const navigate = useNavigate();
   return (
     <div>
@@ -41,7 +43,7 @@ function MenuBar(props) {
         </MenuText>
         <UserContent>
           {/* 로그인 상태 확인 */}
-          {props.isLogin ? (
+          {account ? (
             <UserText
               onClick={() => {
                 navigate("/mypage");
@@ -52,14 +54,10 @@ function MenuBar(props) {
           ) : (
             <>
               <UserText>
-                <ConnectWalletBtn />
+                <ConnectWalletBtn setAccount={setAccount} setWeb3={setWeb3} />
               </UserText>
             </>
           )}
-          <ConnectWalletBtn
-            setAccount={props.setAccount}
-            setWeb3={props.setWeb3}
-          />
         </UserContent>
       </MenuContent>
     </div>
