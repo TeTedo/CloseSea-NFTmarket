@@ -1,0 +1,67 @@
+import styled from "styled-components";
+
+const SellIMG = styled.img``;
+
+const SellWrap = styled.div`
+  background-color: #189cf4;
+  width: 100vw;
+  height: calc(100vh - 100px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const SellTitleDiv = styled.div`
+  /* background-color: white; */
+  width: 1400px;
+  height: 600px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 50px;
+  box-sizing: border-box;
+`;
+const SellLeftDiv = styled.div`
+  width: 80%;
+  height: 100%;
+  border: 3px solid black;
+  background-color: skyblue;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+`;
+const SellRightDiv = styled.div`
+  margin-left: 50px;
+  width: 80%;
+  height: 100%;
+  border: 3px solid black;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+`;
+const SellInput = styled.input``;
+
+const SellRightTitle = styled.div`
+  font-size: 40px;
+  font-weight: 600;
+`;
+
+const SellRightContent = styled.div`
+  font-size: 30px;
+  font-weight: 500;
+`;
+
+const SellText = styled.text``;
+
+const SellBtn = styled.button``;
+
+export {
+  SellIMG,
+  SellWrap,
+  SellTitleDiv,
+  SellLeftDiv,
+  SellRightDiv,
+  SellInput,
+  SellText,
+  SellRightTitle,
+  SellRightContent,
+};
