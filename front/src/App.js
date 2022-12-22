@@ -17,8 +17,8 @@ function App() {
   const [web3, setWeb3] = useState();
   return (
     <div className="App">
-      <Context.Provider value={(account, web3, setAccount, setWeb3)}>
-        <MenuBar isLogin={isLogin} />
+      <Context.Provider value={(account, web3)}>
+        <MenuBar isLogin={isLogin} setAccount={setAccount} setWeb3={setWeb3} />
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/login" element={<Login />} />

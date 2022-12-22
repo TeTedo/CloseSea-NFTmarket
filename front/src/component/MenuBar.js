@@ -56,7 +56,10 @@ function MenuBar(props) {
               </UserText>
             </>
           )}
-          <ConnectWalletBtn />
+          <ConnectWalletBtn
+            setAccount={props.setAccount}
+            setWeb3={props.setWeb3}
+          />
         </UserContent>
       </MenuContent>
     </div>
