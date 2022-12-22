@@ -5,19 +5,20 @@ import {
   NFTNumber,
   NFTPrice,
   NFTPictureSize,
-  NFTBuyBtn,
-} from "./ExchangeStyled";
-function ExchangeComponent(props) {
+  NFTSubText,
+} from "component/exchange/ExchangeStyled";
+
+function NFTComponent(props) {
   return (
-    <NFTBox onClick={props.onClick}>
+    <NFTBox>
       <NFTPictureSize>
         <NFTPicture src={props.img} />
       </NFTPictureSize>
       <NFTNumber>123</NFTNumber>
       <NFTPrice>0.8ETH</NFTPrice>
-      <NFTBuyBtn>⚡️Buy Now</NFTBuyBtn>
+      <NFTSubText>Ends in 24hours</NFTSubText>
     </NFTBox>
   );
 }
 
-export default ExchangeComponent;
+export default NFTComponent;
