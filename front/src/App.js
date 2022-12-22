@@ -13,13 +13,12 @@ import MenuBar from "component/MenuBar";
 export const Context = createContext();
 function App() {
   // 로그인 확인
-  const [isLogin, setIsLogin] = useState(true); // eslint-disable-line no-unused-vars
   const [account, setAccount] = useState();
   const [web3, setWeb3] = useState();
   return (
     <div className="App">
-      <Context.Provider value={(account, web3)}>
-        <MenuBar isLogin={isLogin} setAccount={setAccount} setWeb3={setWeb3} />
+      <Context.Provider value={{ account, web3 }}>
+        <MenuBar setAccount={setAccount} setWeb3={setWeb3} />
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/login" element={<Login />} />
