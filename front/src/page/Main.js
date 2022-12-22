@@ -27,7 +27,6 @@ function Main() {
     }, 500);
   }, []);
 
-  
   return (
     <div className="">
       <BackGround>
@@ -35,8 +34,8 @@ function Main() {
         <MainContent>
           <MainText opacity={opacity} transform={transform}>
             <div>WELCOM,</div>
-            <div>BABY</div> 
-            <SubText opacity ={opacity2} transform={transform2}>
+            <div>BABY</div>
+            <SubText opacity={opacity2} transform={transform2}>
               <p>This is the NFT Exchange.</p>
               <p>Please use it a lot.</p>
             </SubText>

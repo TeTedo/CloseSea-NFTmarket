@@ -42,7 +42,13 @@ function MenuBar(props) {
         <UserContent>
           {/* 로그인 상태 확인 */}
           {props.isLogin ? (
-            <UserText onClick={()=>{navigate("/mypage")}}>MyPage</UserText>
+            <UserText
+              onClick={() => {
+                navigate("/mypage");
+              }}
+            >
+              MyPage
+            </UserText>
           ) : (
             <>
               <UserText>
