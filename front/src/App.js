@@ -5,6 +5,7 @@ import Main from "page/Main";
 import Swap from "page/Swap";
 import SignUp from "page/SignUp";
 import NFTBuy from "page/NFTBuy";
+import Mypage from "page/Mypage";
 import { Routes, Route } from "react-router-dom";
 import { React, useState } from "react";
 import MenuBar from "component/MenuBar";
@@ -14,7 +15,7 @@ const a = () => {
 a();
 function App() {
   // 로그인 확인
-  const [isLogin, setIsLogin] = useState(false); // eslint-disable-line no-unused-vars
+  const [isLogin, setIsLogin] = useState(true); // eslint-disable-line no-unused-vars
 
   return (
     <div className="App">
@@ -26,6 +27,7 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/swap" element={<Swap />} />
         <Route path="/nftbuy/:id" element={<NFTBuy />} />
+        <Route path="/mypage" element={<Mypage/>}/>
       </Routes>
     </div>
   );

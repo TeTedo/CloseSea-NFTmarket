@@ -6,7 +6,6 @@ import {
   MainText,
   SubText,
   NFTImg,
-  Puppy,
   NFTContents,
   ImgText,
   MintingBtn,
@@ -28,12 +27,7 @@ function Main() {
     }, 500);
   }, []);
 
-  // 강아지 달리게 하기
-  const [run, setRun] = useState(true);
-  setTimeout(() => {
-    setRun(!run);
-  }, 5000);
-
+  
   return (
     <div className="">
       <BackGround>
@@ -41,13 +35,8 @@ function Main() {
         <MainContent>
           <MainText opacity={opacity} transform={transform}>
             <div>WELCOM,</div>
-            <div>BABY</div>
-            {run ? (
-              <Puppy src="http://pixelart.pe.kr/data/editor/2010/20201016164213_b6e7bde336df07f9a972e6a4f1933c45_yh6g.gif" />
-            ) : (
-              <Puppy src="http://pixelart.pe.kr/data/editor/2010/20201016164213_b6e7bde336df07f9a972e6a4f1933c45_6t89.gif" />
-            )}
-            <SubText opacity={opacity2} transform={transform2}>
+            <div>BABY</div> 
+            <SubText opacity ={opacity2} transform={transform2}>
               <p>This is the NFT Exchange.</p>
               <p>Please use it a lot.</p>
             </SubText>
