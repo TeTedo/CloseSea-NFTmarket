@@ -9,6 +9,7 @@ import {
   SellInput,
   SellText,
   SellRightContent,
+  SellBtn,
 } from "component/Sell/SellStyled";
 
 const Sell = () => {
@@ -20,9 +21,17 @@ const Sell = () => {
         </SellLeftDiv>
         <SellRightDiv>
           <SellRightTitle>HIHI</SellRightTitle>
-          <SellRightContent></SellRightContent>
+          <SellRightContent>Test</SellRightContent>
+          <SellRightContent
+            style={{ display: "flex", justifyContent: "flex-end" }}
+          >
+            by TTTT
+          </SellRightContent>
+          <SellRightContent>
+            <SellInput placeholder="price"></SellInput>
+          </SellRightContent>
           <SellText></SellText>
-          <SellInput></SellInput>
+          <SellBtn>Sell</SellBtn>
         </SellRightDiv>
       </SellTitleDiv>
     </SellWrap>

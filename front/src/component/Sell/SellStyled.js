@@ -13,7 +13,7 @@ const SellWrap = styled.div`
 
 const SellTitleDiv = styled.div`
   /* background-color: white; */
-  width: 1400px;
+  width: 1200px;
   height: 600px;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -22,7 +22,7 @@ const SellTitleDiv = styled.div`
   box-sizing: border-box;
 `;
 const SellLeftDiv = styled.div`
-  width: 80%;
+  width: 100%;
   height: 100%;
   border: 3px solid black;
   background-color: skyblue;
@@ -33,16 +33,23 @@ const SellRightDiv = styled.div`
   margin-left: 50px;
   width: 80%;
   height: 100%;
-  border: 3px solid black;
+  /* border: 3px solid black;
   background-color: white;
   border-radius: 12px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); */
 `;
-const SellInput = styled.input``;
+const SellInput = styled.input`
+  margin: 30px 0px;
+  border: 2px black solid;
+  height: 40px;
+  width: 100%;
+  font-size: 30px;
+`;
 
 const SellRightTitle = styled.div`
-  font-size: 40px;
+  font-size: 60px;
   font-weight: 600;
+  margin-bottom: 50px;
 `;
 
 const SellRightContent = styled.div`
@@ -52,7 +59,21 @@ const SellRightContent = styled.div`
 
 const SellText = styled.text``;
 
-const SellBtn = styled.button``;
+const SellBtn = styled.button`
+  margin: 20px 0;
+  padding: 10px 40px;
+  font-size: 35px;
+  font-weight: 600;
+  border: 5px solid black;
+  border-radius: 10px;
+  background-color: white;
+  transition: all 0.4s;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  :hover {
+    transform: scale(1.1);
+    box-shadow: 0 7px 14px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  }
+`;
 
 export {
   SellIMG,
@@ -64,4 +85,5 @@ export {
   SellText,
   SellRightTitle,
   SellRightContent,
+  SellBtn,
 };

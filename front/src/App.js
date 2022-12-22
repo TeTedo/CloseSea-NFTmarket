@@ -6,6 +6,7 @@ import Swap from "page/Swap";
 import SignUp from "page/SignUp";
 import NFTBuy from "page/NFTBuy";
 import Mypage from "page/Mypage";
+import Sell from "./page/Sell";
 import { Routes, Route } from "react-router-dom";
 import { React, useState } from "react";
 import MenuBar from "component/MenuBar";
@@ -28,6 +29,7 @@ function App() {
         <Route path="/swap" element={<Swap />} />
         <Route path="/nftbuy/:id" element={<NFTBuy />} />
         <Route path="/mypage" element={<Mypage />} />
+        <Route path="/sell" element={<Sell />} />
       </Routes>
     </div>
   );

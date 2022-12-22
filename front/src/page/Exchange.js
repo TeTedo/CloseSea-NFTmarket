@@ -28,7 +28,13 @@ const Exchange = () => {
     <ExchangePosition>
       <ExchangeTitle>
         NFT Shop
-        <SellBtn>Sell</SellBtn>
+        <SellBtn
+          onClick={() => {
+            navigate("/sell");
+          }}
+        >
+          Sell
+        </SellBtn>
       </ExchangeTitle>
       <ExchangeContent>
         {NFTContent.length > 0 ? NFTContent.map((e) => e) : null}
