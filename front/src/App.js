@@ -7,15 +7,19 @@ import SignUp from "page/SignUp";
 import NFTBuy from "page/NFTBuy";
 import Mypage from "page/Mypage";
 import { Routes, Route } from "react-router-dom";
-import { useState } from "react";
-import MenuBar from 'component/MenuBar'
-
+import { React, useState } from "react";
+import MenuBar from "component/MenuBar";
+const a = () => {
+  console.log("gd");
+};
+a();
 function App() {
   // 로그인 확인
-  const [isLogin,setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(true); // eslint-disable-line no-unused-vars
+
   return (
     <div className="App">
-      <MenuBar isLogin={isLogin}/>
+      <MenuBar isLogin={isLogin} />
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/login" element={<Login />} />

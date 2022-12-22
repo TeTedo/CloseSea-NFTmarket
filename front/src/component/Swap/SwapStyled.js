@@ -18,9 +18,9 @@ const Container = styled.div`
 const GraphWrap = styled.div`
   width: 800px;
   height: 100%;
-  border: 3px solid ;
+  border: 3px solid;
   border-radius: 12px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 `;
 const SwapWrap = styled.div`
   margin-left: 50px;
@@ -31,7 +31,7 @@ const SwapWrap = styled.div`
   /* border: 1px solid #58faf4; */
   border-radius: 12px;
   box-sizing: border-box;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 `;
 const SwapTop = styled.div`
   width: 100%;
@@ -95,11 +95,11 @@ const SwapIcon = styled.div`
   align-items: center;
   border: 3px solid black;
   border-radius: 50%;
-  background-color: #79C2F2;
+  background-color: #79c2f2;
   transition: all 0.4s;
   cursor: pointer;
   :hover {
-    background-color: #2680BD;
+    background-color: #2680bd;
   }
 `;
 const SwapBot = styled.div`
@@ -118,7 +118,7 @@ const Fee = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  div{
+  div {
     font-size: 16px;
     font-weight: bold;
   }
@@ -132,11 +132,11 @@ const SwapBtn = styled.div`
   align-items: center;
   border-radius: 12px;
   font-size: 20px;
-  background-color: #79C2F2;
+  background-color: #79c2f2;
   cursor: pointer;
   transition: all 0.4s;
   :hover {
-    background-color: #2680BD;
+    background-color: #2680bd;
   }
 `;
 export {

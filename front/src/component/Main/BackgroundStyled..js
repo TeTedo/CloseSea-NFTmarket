@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 
 // 배경색
@@ -7,7 +6,6 @@ const BackGround = styled.div`
   height: calc(100vh - 100px);
   background-color: #189cf4;
   overflow: hidden;
-  
 `;
 // 왼쪽 작은 원
 const MainVisual = styled.div`
@@ -69,10 +67,12 @@ const MainText = styled.div`
   text-align: center;
   font-size: 180px;
   font-weight: 600;
-  div:first-child,div:nth-child(2),img{
+  div:first-child,
+  div:nth-child(2),
+  img {
     transition: all 1s;
-    opacity:${(props)=> props.opacity||"0"};
-    transform: ${(props)=> props.transform||"translateY(20px)"}; 
+    opacity: ${(props) => props.opacity || "0"};
+    transform: ${(props) => props.transform || "translateY(20px)"};
   }
 `;
 const SubText = styled.div`
@@ -83,76 +83,74 @@ const SubText = styled.div`
   font-size: 50px;
   font-weight: 600;
   transition: all 1s;
-    opacity:${(props)=> props.opacity||"0"};
-    transform: ${(props)=> props.transform||"translateY(40px)"}; 
+  opacity: ${(props) => props.opacity || "0"};
+  transform: ${(props) => props.transform || "translateY(40px)"};
 `;
 const NFTContents = styled.div`
-    transition: all 1s;
-    opacity:${(props)=> props.opacity||"0"};
-    transform: ${(props)=> props.transform||"translateY(20px)"}; 
-    position: relative;
-    top: 20px;
-    /* bottom : 50px; */
-    right: 3%;
-    z-index: 0;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-`
+  transition: all 1s;
+  opacity: ${(props) => props.opacity || "0"};
+  transform: ${(props) => props.transform || "translateY(20px)"};
+  position: relative;
+  top: 20px;
+  /* bottom : 50px; */
+  right: 3%;
+  z-index: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+`;
 const NFTImg = styled.img`
-    width: 185px;
-    height: 185px;
-    &:first-child{
-        transform: rotate( 15deg );
-        position: relative;
-        top: 50px;
-
-    }
-    &:nth-child(2){
-        transform: rotate( 345deg );
-    }
-    &:nth-child(3){
-        transform: rotate( 15deg );
-    }
-    &:nth-child(4){
-        transform: rotate( 345deg );
-    }
-    &:nth-child(5){
-        transform: rotate( 15deg );
-        position: relative;
-        top: 50px;
-    }
-`
-
-const ImgText = styled.div`
-    opacity:${(props)=> props.opacity||"0"};
-    transform: ${(props)=> props.transform||"translateY(20px)"}; 
-    transition: all 1s;
+  width: 185px;
+  height: 185px;
+  &:first-child {
+    transform: rotate(15deg);
     position: relative;
-    text-align: center;
-    font-size: 50px;
-    font-weight: 600;
-    p:first-child{
-        font-size: 80px;
-    }
-`
+    top: 50px;
+  }
+  &:nth-child(2) {
+    transform: rotate(345deg);
+  }
+  &:nth-child(3) {
+    transform: rotate(15deg);
+  }
+  &:nth-child(4) {
+    transform: rotate(345deg);
+  }
+  &:nth-child(5) {
+    transform: rotate(15deg);
+    position: relative;
+    top: 50px;
+  }
+`;
+const ImgText = styled.div`
+  opacity: ${(props) => props.opacity || "0"};
+  transform: ${(props) => props.transform || "translateY(20px)"};
+  transition: all 1s;
+  position: relative;
+  text-align: center;
+  font-size: 50px;
+  font-weight: 600;
+  p:first-child {
+    font-size: 80px;
+  }
+`;
 const MintingBtn = styled.button`
-    background-color:  transparent;
-    border: 5px solid black;
-    color: black;
-    border-radius: 50px;
-    padding: 20px 50px;
-    font-size: 20px;
-    font-weight: 600;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-    &:hover{
-        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-    }
-`
+  background-color: transparent;
+  border: 5px solid black;
+  color: black;
+  border-radius: 50px;
+  padding: 20px 50px;
+  font-size: 20px;
+  font-weight: 600;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  &:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  }
+`;
 const RightConent = styled.div`
   position: relative;
   bottom: 50px;
-`
+`;
 export {
   BackGround,
   MainVisual,
@@ -165,5 +163,5 @@ export {
   NFTContents,
   ImgText,
   MintingBtn,
-  RightConent
+  RightConent,
 };

@@ -4,7 +4,7 @@ import {
   TextDiv,
   LoginInput,
   StyledButton,
-  TitleText
+  TitleText,
 } from "component/login/LoginStyled";
 
 const Login = () => {

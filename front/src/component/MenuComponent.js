@@ -1,8 +1,6 @@
-import React from "react";
 import styled from "styled-components";
 
 const MenuContent = styled.div`
-
   height: 100px;
   display: grid;
   grid-template-columns: 0.4fr 1fr 0.5fr;
@@ -40,7 +38,7 @@ const UserText = styled.div`
   font-size: 35px;
   font-weight: 600;
   transition: all ease 0.4s;
-  &:hover{
+  &:hover {
     color: white;
   }
 `;

@@ -49,9 +49,7 @@
   "ast": {
     "absolutePath": "project:/@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol",
     "exportedSymbols": {
-      "IERC721Receiver": [
-        1881
-      ]
+      "IERC721Receiver": [1881]
     },
     "id": 1882,
     "license": "MIT",
@@ -59,12 +57,7 @@
     "nodes": [
       {
         "id": 1865,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".0"
-        ],
+        "literals": ["solidity", "^", "0.8", ".0"],
         "nodeType": "PragmaDirective",
         "src": "119:23:6"
       },
@@ -82,9 +75,7 @@
         },
         "fullyImplemented": false,
         "id": 1881,
-        "linearizedBaseContracts": [
-          1881
-        ],
+        "linearizedBaseContracts": [1881],
         "name": "IERC721Receiver",
         "nameLocation": "314:15:6",
         "nodeType": "ContractDefinition",

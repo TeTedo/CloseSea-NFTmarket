@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  MainVisual,
-  CircleBox,
-  MainSlideBox,
-  MainCircleInner,
-} from "./BackgroundStyled.";
+import { MainVisual, MainSlideBox, MainCircleInner } from "./BackgroundStyled.";
 
 function MainBackground() {
   return (

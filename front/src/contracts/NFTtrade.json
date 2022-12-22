@@ -7255,66 +7255,26 @@
   "ast": {
     "absolutePath": "project:/contracts/NftTrade.sol",
     "exportedSymbols": {
-      "Address": [
-        2623
-      ],
-      "Context": [
-        2645
-      ],
-      "ERC165": [
-        2844
-      ],
-      "ERC20": [
-        699
-      ],
-      "ERC721": [
-        1747
-      ],
-      "ERC721A": [
-        4916
-      ],
-      "ERC721Enumerable": [
-        2235
-      ],
-      "IERC165": [
-        2856
-      ],
-      "IERC20": [
-        777
-      ],
-      "IERC20Metadata": [
-        802
-      ],
-      "IERC721": [
-        1863
-      ],
-      "IERC721Enumerable": [
-        2266
-      ],
-      "IERC721Metadata": [
-        2293
-      ],
-      "IERC721Receiver": [
-        1881
-      ],
-      "Math": [
-        3721
-      ],
-      "NFTtrade": [
-        5465
-      ],
-      "NftToken": [
-        5086
-      ],
-      "Ownable": [
-        112
-      ],
-      "Strings": [
-        2820
-      ],
-      "Token": [
-        5681
-      ]
+      "Address": [2623],
+      "Context": [2645],
+      "ERC165": [2844],
+      "ERC20": [699],
+      "ERC721": [1747],
+      "ERC721A": [4916],
+      "ERC721Enumerable": [2235],
+      "IERC165": [2856],
+      "IERC20": [777],
+      "IERC20Metadata": [802],
+      "IERC721": [1863],
+      "IERC721Enumerable": [2266],
+      "IERC721Metadata": [2293],
+      "IERC721Receiver": [1881],
+      "Math": [3721],
+      "NFTtrade": [5465],
+      "NftToken": [5086],
+      "Ownable": [112],
+      "Strings": [2820],
+      "Token": [5681]
     },
     "id": 5466,
     "license": "MIT",
@@ -7322,12 +7282,7 @@
     "nodes": [
       {
         "id": 5088,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".17"
-        ],
+        "literals": ["solidity", "^", "0.8", ".17"],
         "nodeType": "PragmaDirective",
         "src": "33:24:18"
       },
@@ -7363,9 +7318,7 @@
         "contractKind": "contract",
         "fullyImplemented": true,
         "id": 5465,
-        "linearizedBaseContracts": [
-          5465
-        ],
+        "linearizedBaseContracts": [5465],
         "name": "NFTtrade",
         "nameLocation": "119:8:18",
         "nodeType": "ContractDefinition",
@@ -7392,9 +7345,7 @@
               "pathNode": {
                 "id": 5091,
                 "name": "NftToken",
-                "nameLocations": [
-                  "134:8:18"
-                ],
+                "nameLocations": ["134:8:18"],
                 "nodeType": "IdentifierPath",
                 "referencedDeclaration": 5086,
                 "src": "134:8:18"
@@ -7430,9 +7381,7 @@
               "pathNode": {
                 "id": 5094,
                 "name": "Token",
-                "nameLocations": [
-                  "160:5:18"
-                ],
+                "nameLocations": ["160:5:18"],
                 "nodeType": "IdentifierPath",
                 "referencedDeclaration": 5681,
                 "src": "160:5:18"
@@ -7899,9 +7848,7 @@
               "src": "576:285:18",
               "statements": [
                 {
-                  "assignments": [
-                    5139
-                  ],
+                  "assignments": [5139],
                   "declarations": [
                     {
                       "constant": false,
@@ -8072,10 +8019,7 @@
                       "id": 5145,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        4294967278,
-                        4294967278
-                      ],
+                      "overloadedDeclarations": [4294967278, 4294967278],
                       "referencedDeclaration": 4294967278,
                       "src": "640:7:18",
                       "typeDescriptions": {
@@ -8163,10 +8107,7 @@
                       "id": 5152,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        4294967278,
-                        4294967278
-                      ],
+                      "overloadedDeclarations": [4294967278, 4294967278],
                       "referencedDeclaration": 4294967278,
                       "src": "684:7:18",
                       "typeDescriptions": {
@@ -8349,10 +8290,7 @@
                       "id": 5158,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        4294967278,
-                        4294967278
-                      ],
+                      "overloadedDeclarations": [4294967278, 4294967278],
                       "referencedDeclaration": 4294967278,
                       "src": "715:7:18",
                       "typeDescriptions": {
@@ -8607,9 +8545,7 @@
               "src": "931:404:18",
               "statements": [
                 {
-                  "assignments": [
-                    5189
-                  ],
+                  "assignments": [5189],
                   "declarations": [
                     {
                       "constant": false,
@@ -8780,10 +8716,7 @@
                       "id": 5195,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        4294967278,
-                        4294967278
-                      ],
+                      "overloadedDeclarations": [4294967278, 4294967278],
                       "referencedDeclaration": 4294967278,
                       "src": "997:7:18",
                       "typeDescriptions": {
@@ -8896,10 +8829,7 @@
                       "id": 5202,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        4294967278,
-                        4294967278
-                      ],
+                      "overloadedDeclarations": [4294967278, 4294967278],
                       "referencedDeclaration": 4294967278,
                       "src": "1041:7:18",
                       "typeDescriptions": {
@@ -9076,10 +9006,7 @@
                       "id": 5210,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        4294967278,
-                        4294967278
-                      ],
+                      "overloadedDeclarations": [4294967278, 4294967278],
                       "referencedDeclaration": 4294967278,
                       "src": "1121:7:18",
                       "typeDescriptions": {
@@ -9773,9 +9700,7 @@
                   },
                   "id": 5286,
                   "initializationExpression": {
-                    "assignments": [
-                      5250
-                    ],
+                    "assignments": [5250],
                     "declarations": [
                       {
                         "constant": false,
@@ -10066,10 +9991,7 @@
                       "id": 5297,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        4294967278,
-                        4294967278
-                      ],
+                      "overloadedDeclarations": [4294967278, 4294967278],
                       "referencedDeclaration": 4294967278,
                       "src": "1862:7:18",
                       "typeDescriptions": {
@@ -10098,9 +10020,7 @@
                   "src": "1862:54:18"
                 },
                 {
-                  "assignments": [
-                    5309
-                  ],
+                  "assignments": [5309],
                   "declarations": [
                     {
                       "constant": false,
@@ -10124,9 +10044,7 @@
                           "pathNode": {
                             "id": 5306,
                             "name": "TokenInfo",
-                            "nameLocations": [
-                              "1927:9:18"
-                            ],
+                            "nameLocations": ["1927:9:18"],
                             "nodeType": "IdentifierPath",
                             "referencedDeclaration": 5124,
                             "src": "1927:9:18"
@@ -10205,9 +10123,7 @@
                           "pathNode": {
                             "id": 5310,
                             "name": "TokenInfo",
-                            "nameLocations": [
-                              "1957:9:18"
-                            ],
+                            "nameLocations": ["1957:9:18"],
                             "nodeType": "IdentifierPath",
                             "referencedDeclaration": 5124,
                             "src": "1957:9:18"
@@ -10254,9 +10170,7 @@
                     "src": "2049:157:18",
                     "statements": [
                       {
-                        "assignments": [
-                          5330
-                        ],
+                        "assignments": [5330],
                         "declarations": [
                           {
                             "constant": false,
@@ -10328,9 +10242,7 @@
                         "src": "2064:31:18"
                       },
                       {
-                        "assignments": [
-                          5336
-                        ],
+                        "assignments": [5336],
                         "declarations": [
                           {
                             "constant": false,
@@ -10583,9 +10495,7 @@
                   },
                   "id": 5351,
                   "initializationExpression": {
-                    "assignments": [
-                      5319
-                    ],
+                    "assignments": [5319],
                     "declarations": [
                       {
                         "constant": false,
@@ -10730,9 +10640,7 @@
                       "pathNode": {
                         "id": 5292,
                         "name": "TokenInfo",
-                        "nameLocations": [
-                          "1832:9:18"
-                        ],
+                        "nameLocations": ["1832:9:18"],
                         "nodeType": "IdentifierPath",
                         "referencedDeclaration": 5124,
                         "src": "1832:9:18"
@@ -10770,9 +10678,7 @@
               "src": "2368:402:18",
               "statements": [
                 {
-                  "assignments": [
-                    5365
-                  ],
+                  "assignments": [5365],
                   "declarations": [
                     {
                       "constant": false,
@@ -10931,10 +10837,7 @@
                       "id": 5371,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        4294967278,
-                        4294967278
-                      ],
+                      "overloadedDeclarations": [4294967278, 4294967278],
                       "referencedDeclaration": 4294967278,
                       "src": "2431:7:18",
                       "typeDescriptions": {
@@ -10963,9 +10866,7 @@
                   "src": "2431:21:18"
                 },
                 {
-                  "assignments": [
-                    5381
-                  ],
+                  "assignments": [5381],
                   "declarations": [
                     {
                       "constant": false,
@@ -10989,9 +10890,7 @@
                           "pathNode": {
                             "id": 5378,
                             "name": "TokenInfo",
-                            "nameLocations": [
-                              "2463:9:18"
-                            ],
+                            "nameLocations": ["2463:9:18"],
                             "nodeType": "IdentifierPath",
                             "referencedDeclaration": 5124,
                             "src": "2463:9:18"
@@ -11055,9 +10954,7 @@
                           "pathNode": {
                             "id": 5382,
                             "name": "TokenInfo",
-                            "nameLocations": [
-                              "2493:9:18"
-                            ],
+                            "nameLocations": ["2493:9:18"],
                             "nodeType": "IdentifierPath",
                             "referencedDeclaration": 5124,
                             "src": "2493:9:18"
@@ -11104,9 +11001,7 @@
                     "src": "2559:180:18",
                     "statements": [
                       {
-                        "assignments": [
-                          5400
-                        ],
+                        "assignments": [5400],
                         "declarations": [
                           {
                             "constant": false,
@@ -11222,9 +11117,7 @@
                         "src": "2574:54:18"
                       },
                       {
-                        "assignments": [
-                          5408
-                        ],
+                        "assignments": [5408],
                         "declarations": [
                           {
                             "constant": false,
@@ -11462,9 +11355,7 @@
                   },
                   "id": 5423,
                   "initializationExpression": {
-                    "assignments": [
-                      5390
-                    ],
+                    "assignments": [5390],
                     "declarations": [
                       {
                         "constant": false,
@@ -11638,9 +11529,7 @@
                       "pathNode": {
                         "id": 5359,
                         "name": "TokenInfo",
-                        "nameLocations": [
-                          "2349:9:18"
-                        ],
+                        "nameLocations": ["2349:9:18"],
                         "nodeType": "IdentifierPath",
                         "referencedDeclaration": 5124,
                         "src": "2349:9:18"
@@ -11678,9 +11567,7 @@
               "src": "2997:221:18",
               "statements": [
                 {
-                  "assignments": [
-                    5436
-                  ],
+                  "assignments": [5436],
                   "declarations": [
                     {
                       "constant": false,
@@ -11780,9 +11667,7 @@
                   "src": "3008:41:18"
                 },
                 {
-                  "assignments": [
-                    5443
-                  ],
+                  "assignments": [5443],
                   "declarations": [
                     {
                       "constant": false,
@@ -11932,9 +11817,7 @@
                   "src": "3060:62:18"
                 },
                 {
-                  "assignments": [
-                    5453
-                  ],
+                  "assignments": [5453],
                   "declarations": [
                     {
                       "constant": false,
@@ -12146,9 +12029,7 @@
                     "pathNode": {
                       "id": 5431,
                       "name": "TokenInfo",
-                      "nameLocations": [
-                        "2980:9:18"
-                      ],
+                      "nameLocations": ["2980:9:18"],
                       "nodeType": "IdentifierPath",
                       "referencedDeclaration": 5124,
                       "src": "2980:9:18"

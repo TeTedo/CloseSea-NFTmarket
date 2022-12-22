@@ -13,7 +13,7 @@ import {
   RightBuyPrice,
   RightBuyBtn,
   RightNftProperties,
-  RightNftPropertiesText
+  RightNftPropertiesText,
 } from "component/NFTBuy/NFTBuyStyled";
 import PropertiesComnent from "component/NFTBuy/PropertiesComnent";
 
@@ -28,14 +28,14 @@ function NFTBuy() {
       <RightContnent>
         <RightTitle>Mask Man #</RightTitle>
         <RightSub>Owned by (닉네임)</RightSub>
-        
+
         <RightNftPropertiesText>Properties</RightNftPropertiesText>
         <RightNftProperties>
-          <PropertiesComnent title="BACKGROUND" content="Blue"/>
-          <PropertiesComnent title="EYES" content="Smile"/>
-          <PropertiesComnent title="FACE" content="Blue"/>
-          <PropertiesComnent title="HEADER" content="Header"/>
-          <PropertiesComnent title="MOUSE" content="Smile"/>
+          <PropertiesComnent title="BACKGROUND" content="Blue" />
+          <PropertiesComnent title="EYES" content="Smile" />
+          <PropertiesComnent title="FACE" content="Blue" />
+          <PropertiesComnent title="HEADER" content="Header" />
+          <PropertiesComnent title="MOUSE" content="Smile" />
         </RightNftProperties>
         <RightBuyContent>
           <RightBuyText>Current price</RightBuyText>

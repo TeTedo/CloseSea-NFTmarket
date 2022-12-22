@@ -356,15 +356,9 @@
   "ast": {
     "absolutePath": "project:/@openzeppelin/contracts/token/ERC721/extensions/IERC721Enumerable.sol",
     "exportedSymbols": {
-      "IERC165": [
-        2856
-      ],
-      "IERC721": [
-        1863
-      ],
-      "IERC721Enumerable": [
-        2266
-      ]
+      "IERC165": [2856],
+      "IERC721": [1863],
+      "IERC721Enumerable": [2266]
     },
     "id": 2267,
     "license": "MIT",
@@ -372,12 +366,7 @@
     "nodes": [
       {
         "id": 2237,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".0"
-        ],
+        "literals": ["solidity", "^", "0.8", ".0"],
         "nodeType": "PragmaDirective",
         "src": "132:23:8"
       },
@@ -400,9 +389,7 @@
             "baseName": {
               "id": 2240,
               "name": "IERC721",
-              "nameLocations": [
-                "359:7:8"
-              ],
+              "nameLocations": ["359:7:8"],
               "nodeType": "IdentifierPath",
               "referencedDeclaration": 1863,
               "src": "359:7:8"
@@ -423,11 +410,7 @@
         },
         "fullyImplemented": false,
         "id": 2266,
-        "linearizedBaseContracts": [
-          2266,
-          1863,
-          2856
-        ],
+        "linearizedBaseContracts": [2266, 1863, 2856],
         "name": "IERC721Enumerable",
         "nameLocation": "338:17:8",
         "nodeType": "ContractDefinition",

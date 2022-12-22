@@ -25435,63 +25435,25 @@
   "ast": {
     "absolutePath": "project:/contracts/NftToken.sol",
     "exportedSymbols": {
-      "Address": [
-        2623
-      ],
-      "Context": [
-        2645
-      ],
-      "ERC165": [
-        2844
-      ],
-      "ERC20": [
-        699
-      ],
-      "ERC721": [
-        1747
-      ],
-      "ERC721A": [
-        4916
-      ],
-      "ERC721Enumerable": [
-        2235
-      ],
-      "IERC165": [
-        2856
-      ],
-      "IERC20": [
-        777
-      ],
-      "IERC20Metadata": [
-        802
-      ],
-      "IERC721": [
-        1863
-      ],
-      "IERC721Enumerable": [
-        2266
-      ],
-      "IERC721Metadata": [
-        2293
-      ],
-      "IERC721Receiver": [
-        1881
-      ],
-      "Math": [
-        3721
-      ],
-      "NftToken": [
-        5086
-      ],
-      "Ownable": [
-        112
-      ],
-      "Strings": [
-        2820
-      ],
-      "Token": [
-        5681
-      ]
+      "Address": [2623],
+      "Context": [2645],
+      "ERC165": [2844],
+      "ERC20": [699],
+      "ERC721": [1747],
+      "ERC721A": [4916],
+      "ERC721Enumerable": [2235],
+      "IERC165": [2856],
+      "IERC20": [777],
+      "IERC20Metadata": [802],
+      "IERC721": [1863],
+      "IERC721Enumerable": [2266],
+      "IERC721Metadata": [2293],
+      "IERC721Receiver": [1881],
+      "Math": [3721],
+      "NftToken": [5086],
+      "Ownable": [112],
+      "Strings": [2820],
+      "Token": [5681]
     },
     "id": 5087,
     "license": "MIT",
@@ -25499,12 +25461,7 @@
     "nodes": [
       {
         "id": 4918,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".17"
-        ],
+        "literals": ["solidity", "^", "0.8", ".17"],
         "nodeType": "PragmaDirective",
         "src": "33:24:17"
       },
@@ -25575,9 +25532,7 @@
             "baseName": {
               "id": 4924,
               "name": "Ownable",
-              "nameLocations": [
-                "328:7:17"
-              ],
+              "nameLocations": ["328:7:17"],
               "nodeType": "IdentifierPath",
               "referencedDeclaration": 112,
               "src": "328:7:17"
@@ -25590,9 +25545,7 @@
             "baseName": {
               "id": 4926,
               "name": "ERC721A",
-              "nameLocations": [
-                "337:7:17"
-              ],
+              "nameLocations": ["337:7:17"],
               "nodeType": "IdentifierPath",
               "referencedDeclaration": 4916,
               "src": "337:7:17"
@@ -25608,15 +25561,7 @@
         "fullyImplemented": true,
         "id": 5086,
         "linearizedBaseContracts": [
-          5086,
-          4916,
-          2266,
-          2293,
-          1863,
-          2844,
-          2856,
-          112,
-          2645
+          5086, 4916, 2266, 2293, 1863, 2844, 2856, 112, 2645
         ],
         "name": "NftToken",
         "nameLocation": "316:8:17",
@@ -25743,9 +25688,7 @@
               "pathNode": {
                 "id": 4935,
                 "name": "Token",
-                "nameLocations": [
-                  "437:5:17"
-                ],
+                "nameLocations": ["437:5:17"],
                 "nodeType": "IdentifierPath",
                 "referencedDeclaration": 5681,
                 "src": "437:5:17"
@@ -25952,10 +25895,7 @@
                       "id": 4945,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        4294967278,
-                        4294967278
-                      ],
+                      "overloadedDeclarations": [4294967278, 4294967278],
                       "referencedDeclaration": 4294967278,
                       "src": "563:7:17",
                       "typeDescriptions": {
@@ -26108,10 +26048,7 @@
                       "id": 4956,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        4294967278,
-                        4294967278
-                      ],
+                      "overloadedDeclarations": [4294967278, 4294967278],
                       "referencedDeclaration": 4294967278,
                       "src": "650:7:17",
                       "typeDescriptions": {
@@ -26297,10 +26234,7 @@
                       "id": 4966,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        4294967278,
-                        4294967278
-                      ],
+                      "overloadedDeclarations": [4294967278, 4294967278],
                       "referencedDeclaration": 4294967278,
                       "src": "738:7:17",
                       "typeDescriptions": {
@@ -26614,9 +26548,7 @@
                 "modifierName": {
                   "id": 4992,
                   "name": "ERC721A",
-                  "nameLocations": [
-                    "966:7:17"
-                  ],
+                  "nameLocations": ["966:7:17"],
                   "nodeType": "IdentifierPath",
                   "referencedDeclaration": 4916,
                   "src": "966:7:17"
@@ -27043,10 +26975,7 @@
                       "id": 5029,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        4294967278,
-                        4294967278
-                      ],
+                      "overloadedDeclarations": [4294967278, 4294967278],
                       "referencedDeclaration": 4294967278,
                       "src": "1333:7:17",
                       "typeDescriptions": {
@@ -27220,10 +27149,7 @@
                       "id": 5042,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        4294967278,
-                        4294967278
-                      ],
+                      "overloadedDeclarations": [4294967278, 4294967278],
                       "referencedDeclaration": 4294967278,
                       "src": "1429:7:17",
                       "typeDescriptions": {
@@ -27308,10 +27234,7 @@
                       "id": 5054,
                       "name": "_safeMint",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        4406,
-                        4552
-                      ],
+                      "overloadedDeclarations": [4406, 4552],
                       "referencedDeclaration": 4406,
                       "src": "1520:9:17",
                       "typeDescriptions": {
@@ -27366,9 +27289,7 @@
                 "modifierName": {
                   "id": 5025,
                   "name": "mintRequire",
-                  "nameLocations": [
-                    "1298:11:17"
-                  ],
+                  "nameLocations": ["1298:11:17"],
                   "nodeType": "IdentifierPath",
                   "referencedDeclaration": 4980,
                   "src": "1298:11:17"
@@ -27616,9 +27537,7 @@
             "visibility": "private"
           },
           {
-            "baseFunctions": [
-              4195
-            ],
+            "baseFunctions": [4195],
             "body": {
               "id": 5084,
               "nodeType": "Block",
