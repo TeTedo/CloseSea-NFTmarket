@@ -31,7 +31,7 @@ const ExchangeContent = styled.div`
   place-content: center;
   grid-gap: 100px;
 `;
-const TestBox = styled.div`
+const NFTBox = styled.div`
   display: grid;
   grid-template-rows: 5fr 1fr 1fr 1fr;
   width: 230px;
@@ -83,16 +83,23 @@ const NFTBuyBtn = styled.button`
     background-color: #945700;
   }
 `;
+const NFTSubText = styled.div`
+  margin-left: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.5);
+`;
 
 export {
   ExchangePosition,
   ExchangeTitle,
   ExchangeContent,
-  TestBox,
+  NFTBox,
   NFTPicture,
   NFTNumber,
   NFTPrice,
   NFTPictureSize,
   NFTBuyBtn,
   SellBtn,
+  NFTSubText,
 };
