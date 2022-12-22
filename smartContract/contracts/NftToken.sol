@@ -6,10 +6,12 @@ import "../@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol"
 import "../@openzeppelin/contracts/access/Ownable.sol";
 import "../@openzeppelin/contracts/utils/Strings.sol";
 import "./ERC721A.sol";
+import "./Token.sol";
 contract NftToken is Ownable, ERC721A{
     uint public maxTokenNum;
-    uint public mintPrice = 1 ether;
+    uint public mintPrice = 1000;
     uint mintLimit;
+    Token public coin;
     mapping(address => uint256) public mintCount;
 
     modifier mintRequire(uint _mintAmount){
@@ -19,25 +21,29 @@ contract NftToken is Ownable, ERC721A{
         _;
     }
 
-    constructor(string memory _name, string memory _symbol, uint256 _mintLimit, uint256 _collectionSize)ERC721A(_name,_symbol, _mintLimit, _collectionSize){
+    constructor(string memory _name, string memory _symbol, uint256 _mintLimit, uint256 _collectionSize,address _coinCA)ERC721A(_name,_symbol, _mintLimit, _collectionSize){
+        coin = Token(payable(_coinCA));
         mintLimit = _mintLimit;
     }
 
+    // 민팅 가격 받아오기
+    function getMintPrice() external view returns(uint){
+        return mintPrice;
+    }
+    
     // 민팅
-    function _minting(uint _mintAmount) public payable mintRequire(_mintAmount){
-        // 토큰 개수 확인하기
-        // require(balanceOf(msg.sender) >= mintPrice * _mintAmount, "Insufficient funds!");
-        // require(mintCount[msg.sender] + _mintAmount <= mintLimit, "mint limit exceeded");
+    function _minting(uint _mintAmount) public mintRequire(_mintAmount){
+        require(coin.balanceOf(msg.sender) >= mintPrice * _mintAmount, "Insufficient funds!");
+        require(mintCount[msg.sender] + _mintAmount <= mintLimit, "mint limit exceeded");
         _safeMint(msg.sender, _mintAmount);
-        refundIfOver(mintPrice);
     }
 
-    function refundIfOver(uint256 _mintPrice) private {
-        require(msg.value >= _mintPrice, "Need to send more ETH.");
-        if (msg.value > _mintPrice) {
-            payable(msg.sender).transfer(msg.value - _mintPrice);
-        }
-    }
+    // function refundIfOver(uint256 _mintPrice) private {
+    //     require(msg.value >= _mintPrice, "Need to send more ETH.");
+    //     if (msg.value > _mintPrice) {
+    //         payable(msg.sender).transfer(msg.value - _mintPrice);
+    //     }
+    // }
 
     function numberMinted(address owner) public view returns (uint256) {
         return _numberMinted(owner);
