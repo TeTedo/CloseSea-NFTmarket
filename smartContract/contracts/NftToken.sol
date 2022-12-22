@@ -51,7 +51,7 @@ contract NftToken is Ownable, ERC721A{
 
     
     // // metadata URI
-    string private _baseTokenURI = "http://localhost:8000/metaData/";
+    string private _baseTokenURI = "https://gateway.pinata.cloud/ipfs/QmTr3GC4F8iQJXUSHxfjGHm3zscUVZ8JeHHfio432Do3Bn/";
 
     function _baseURI() internal view virtual override returns (string memory) {
         return _baseTokenURI;

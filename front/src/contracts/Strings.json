@@ -10,12 +10,16 @@
   "sourceMap": "198:2124:12:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;",
   "deployedSourceMap": "198:2124:12:-:0;;;;;;;;",
   "source": "// SPDX-License-Identifier: MIT\r\n// OpenZeppelin Contracts (last updated v4.8.0) (utils/Strings.sol)\r\n\r\npragma solidity ^0.8.0;\r\n\r\nimport \"./math/Math.sol\";\r\n\r\n/**\r\n * @dev String operations.\r\n */\r\nlibrary Strings {\r\n    bytes16 private constant _SYMBOLS = \"0123456789abcdef\";\r\n    uint8 private constant _ADDRESS_LENGTH = 20;\r\n\r\n    /**\r\n     * @dev Converts a `uint256` to its ASCII `string` decimal representation.\r\n     */\r\n    function toString(uint256 value) internal pure returns (string memory) {\r\n        unchecked {\r\n            uint256 length = Math.log10(value) + 1;\r\n            string memory buffer = new string(length);\r\n            uint256 ptr;\r\n            /// @solidity memory-safe-assembly\r\n            assembly {\r\n                ptr := add(buffer, add(32, length))\r\n            }\r\n            while (true) {\r\n                ptr--;\r\n                /// @solidity memory-safe-assembly\r\n                assembly {\r\n                    mstore8(ptr, byte(mod(value, 10), _SYMBOLS))\r\n                }\r\n                value /= 10;\r\n                if (value == 0) break;\r\n            }\r\n            return buffer;\r\n        }\r\n    }\r\n\r\n    /**\r\n     * @dev Converts a `uint256` to its ASCII `string` hexadecimal representation.\r\n     */\r\n    function toHexString(uint256 value) internal pure returns (string memory) {\r\n        unchecked {\r\n            return toHexString(value, Math.log256(value) + 1);\r\n        }\r\n    }\r\n\r\n    /**\r\n     * @dev Converts a `uint256` to its ASCII `string` hexadecimal representation with fixed length.\r\n     */\r\n    function toHexString(uint256 value, uint256 length) internal pure returns (string memory) {\r\n        bytes memory buffer = new bytes(2 * length + 2);\r\n        buffer[0] = \"0\";\r\n        buffer[1] = \"x\";\r\n        for (uint256 i = 2 * length + 1; i > 1; --i) {\r\n            buffer[i] = _SYMBOLS[value & 0xf];\r\n            value >>= 4;\r\n        }\r\n        require(value == 0, \"Strings: hex length insufficient\");\r\n        return string(buffer);\r\n    }\r\n\r\n    /**\r\n     * @dev Converts an `address` with fixed length of 20 bytes to its not checksummed ASCII `string` hexadecimal representation.\r\n     */\r\n    function toHexString(address addr) internal pure returns (string memory) {\r\n        return toHexString(uint256(uint160(addr)), _ADDRESS_LENGTH);\r\n    }\r\n}\r\n",
-  "sourcePath": "C:\\Users\\KGA_030\\Desktop\\class\\NFT_market\\smartContract\\@openzeppelin\\contracts\\utils\\Strings.sol",
+  "sourcePath": "C:\\Users\\qkrxo\\Desktop\\NFT_market\\smartContract\\@openzeppelin\\contracts\\utils\\Strings.sol",
   "ast": {
     "absolutePath": "project:/@openzeppelin/contracts/utils/Strings.sol",
     "exportedSymbols": {
-      "Math": [3721],
-      "Strings": [2820]
+      "Math": [
+        3721
+      ],
+      "Strings": [
+        2820
+      ]
     },
     "id": 2821,
     "license": "MIT",
@@ -23,7 +27,12 @@
     "nodes": [
       {
         "id": 2647,
-        "literals": ["solidity", "^", "0.8", ".0"],
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ],
         "nodeType": "PragmaDirective",
         "src": "104:23:12"
       },
@@ -53,7 +62,9 @@
         },
         "fullyImplemented": true,
         "id": 2820,
-        "linearizedBaseContracts": [2820],
+        "linearizedBaseContracts": [
+          2820
+        ],
         "name": "Strings",
         "nameLocation": "206:7:12",
         "nodeType": "ContractDefinition",
@@ -156,7 +167,9 @@
                   "src": "514:627:12",
                   "statements": [
                     {
-                      "assignments": [2664],
+                      "assignments": [
+                        2664
+                      ],
                       "declarations": [
                         {
                           "constant": false,
@@ -290,7 +303,9 @@
                       "src": "539:38:12"
                     },
                     {
-                      "assignments": [2673],
+                      "assignments": [
+                        2673
+                      ],
                       "declarations": [
                         {
                           "constant": false,
@@ -385,7 +400,9 @@
                       "src": "592:41:12"
                     },
                     {
-                      "assignments": [2680],
+                      "assignments": [
+                        2680
+                      ],
                       "declarations": [
                         {
                           "constant": false,
@@ -1012,7 +1029,11 @@
                           "id": 2711,
                           "name": "toHexString",
                           "nodeType": "Identifier",
-                          "overloadedDeclarations": [2723, 2799, 2819],
+                          "overloadedDeclarations": [
+                            2723,
+                            2799,
+                            2819
+                          ],
                           "referencedDeclaration": 2799,
                           "src": "1375:11:12",
                           "typeDescriptions": {
@@ -1139,7 +1160,9 @@
               "src": "1654:357:12",
               "statements": [
                 {
-                  "assignments": [2734],
+                  "assignments": [
+                    2734
+                  ],
                   "declarations": [
                     {
                       "constant": false,
@@ -1683,7 +1706,9 @@
                   },
                   "id": 2785,
                   "initializationExpression": {
-                    "assignments": [2757],
+                    "assignments": [
+                      2757
+                    ],
                     "declarations": [
                       {
                         "constant": false,
@@ -1912,7 +1937,10 @@
                       "id": 2786,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [4294967278, 4294967278],
+                      "overloadedDeclarations": [
+                        4294967278,
+                        4294967278
+                      ],
                       "referencedDeclaration": 4294967278,
                       "src": "1916:7:12",
                       "typeDescriptions": {
@@ -2257,7 +2285,11 @@
                       "id": 2807,
                       "name": "toHexString",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [2723, 2799, 2819],
+                      "overloadedDeclarations": [
+                        2723,
+                        2799,
+                        2819
+                      ],
                       "referencedDeclaration": 2799,
                       "src": "2259:11:12",
                       "typeDescriptions": {
@@ -2390,7 +2422,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.11",
-  "updatedAt": "2022-12-22T03:38:21.502Z",
+  "updatedAt": "2022-12-22T13:59:22.138Z",
   "devdoc": {
     "details": "String operations.",
     "kind": "dev",

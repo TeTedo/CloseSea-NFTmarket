@@ -397,22 +397,46 @@
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "// SPDX-License-Identifier: MIT\r\n// OpenZeppelin Contracts (last updated v4.8.0) (token/ERC721/extensions/ERC721Enumerable.sol)\r\n\r\npragma solidity ^0.8.0;\r\n\r\nimport \"../ERC721.sol\";\r\nimport \"./IERC721Enumerable.sol\";\r\n\r\n/**\r\n * @dev This implements an optional extension of {ERC721} defined in the EIP that adds\r\n * enumerability of all the token ids in the contract as well as all token ids owned by each\r\n * account.\r\n */\r\nabstract contract ERC721Enumerable is ERC721, IERC721Enumerable {\r\n    // Mapping from owner to list of owned token IDs\r\n    mapping(address => mapping(uint256 => uint256)) private _ownedTokens;\r\n\r\n    // Mapping from token ID to index of the owner tokens list\r\n    mapping(uint256 => uint256) private _ownedTokensIndex;\r\n\r\n    // Array with all token ids, used for enumeration\r\n    uint256[] private _allTokens;\r\n\r\n    // Mapping from token id to position in the allTokens array\r\n    mapping(uint256 => uint256) private _allTokensIndex;\r\n\r\n    /**\r\n     * @dev See {IERC165-supportsInterface}.\r\n     */\r\n    function supportsInterface(bytes4 interfaceId) public view virtual override(IERC165, ERC721) returns (bool) {\r\n        return interfaceId == type(IERC721Enumerable).interfaceId || super.supportsInterface(interfaceId);\r\n    }\r\n\r\n    /**\r\n     * @dev See {IERC721Enumerable-tokenOfOwnerByIndex}.\r\n     */\r\n    function tokenOfOwnerByIndex(address owner, uint256 index) public view virtual override returns (uint256) {\r\n        require(index < ERC721.balanceOf(owner), \"ERC721Enumerable: owner index out of bounds\");\r\n        return _ownedTokens[owner][index];\r\n    }\r\n\r\n    /**\r\n     * @dev See {IERC721Enumerable-totalSupply}.\r\n     */\r\n    function totalSupply() public view virtual override returns (uint256) {\r\n        return _allTokens.length;\r\n    }\r\n\r\n    /**\r\n     * @dev See {IERC721Enumerable-tokenByIndex}.\r\n     */\r\n    function tokenByIndex(uint256 index) public view virtual override returns (uint256) {\r\n        require(index < ERC721Enumerable.totalSupply(), \"ERC721Enumerable: global index out of bounds\");\r\n        return _allTokens[index];\r\n    }\r\n\r\n    /**\r\n     * @dev See {ERC721-_beforeTokenTransfer}.\r\n     */\r\n    function _beforeTokenTransfer(\r\n        address from,\r\n        address to,\r\n        uint256 firstTokenId,\r\n        uint256 batchSize\r\n    ) internal virtual override {\r\n        super._beforeTokenTransfer(from, to, firstTokenId, batchSize);\r\n\r\n        if (batchSize > 1) {\r\n            // Will only trigger during construction. Batch transferring (minting) is not available afterwards.\r\n            revert(\"ERC721Enumerable: consecutive transfers not supported\");\r\n        }\r\n\r\n        uint256 tokenId = firstTokenId;\r\n\r\n        if (from == address(0)) {\r\n            _addTokenToAllTokensEnumeration(tokenId);\r\n        } else if (from != to) {\r\n            _removeTokenFromOwnerEnumeration(from, tokenId);\r\n        }\r\n        if (to == address(0)) {\r\n            _removeTokenFromAllTokensEnumeration(tokenId);\r\n        } else if (to != from) {\r\n            _addTokenToOwnerEnumeration(to, tokenId);\r\n        }\r\n    }\r\n\r\n    /**\r\n     * @dev Private function to add a token to this extension's ownership-tracking data structures.\r\n     * @param to address representing the new owner of the given token ID\r\n     * @param tokenId uint256 ID of the token to be added to the tokens list of the given address\r\n     */\r\n    function _addTokenToOwnerEnumeration(address to, uint256 tokenId) private {\r\n        uint256 length = ERC721.balanceOf(to);\r\n        _ownedTokens[to][length] = tokenId;\r\n        _ownedTokensIndex[tokenId] = length;\r\n    }\r\n\r\n    /**\r\n     * @dev Private function to add a token to this extension's token tracking data structures.\r\n     * @param tokenId uint256 ID of the token to be added to the tokens list\r\n     */\r\n    function _addTokenToAllTokensEnumeration(uint256 tokenId) private {\r\n        _allTokensIndex[tokenId] = _allTokens.length;\r\n        _allTokens.push(tokenId);\r\n    }\r\n\r\n    /**\r\n     * @dev Private function to remove a token from this extension's ownership-tracking data structures. Note that\r\n     * while the token is not assigned a new owner, the `_ownedTokensIndex` mapping is _not_ updated: this allows for\r\n     * gas optimizations e.g. when performing a transfer operation (avoiding double writes).\r\n     * This has O(1) time complexity, but alters the order of the _ownedTokens array.\r\n     * @param from address representing the previous owner of the given token ID\r\n     * @param tokenId uint256 ID of the token to be removed from the tokens list of the given address\r\n     */\r\n    function _removeTokenFromOwnerEnumeration(address from, uint256 tokenId) private {\r\n        // To prevent a gap in from's tokens array, we store the last token in the index of the token to delete, and\r\n        // then delete the last slot (swap and pop).\r\n\r\n        uint256 lastTokenIndex = ERC721.balanceOf(from) - 1;\r\n        uint256 tokenIndex = _ownedTokensIndex[tokenId];\r\n\r\n        // When the token to delete is the last token, the swap operation is unnecessary\r\n        if (tokenIndex != lastTokenIndex) {\r\n            uint256 lastTokenId = _ownedTokens[from][lastTokenIndex];\r\n\r\n            _ownedTokens[from][tokenIndex] = lastTokenId; // Move the last token to the slot of the to-delete token\r\n            _ownedTokensIndex[lastTokenId] = tokenIndex; // Update the moved token's index\r\n        }\r\n\r\n        // This also deletes the contents at the last position of the array\r\n        delete _ownedTokensIndex[tokenId];\r\n        delete _ownedTokens[from][lastTokenIndex];\r\n    }\r\n\r\n    /**\r\n     * @dev Private function to remove a token from this extension's token tracking data structures.\r\n     * This has O(1) time complexity, but alters the order of the _allTokens array.\r\n     * @param tokenId uint256 ID of the token to be removed from the tokens list\r\n     */\r\n    function _removeTokenFromAllTokensEnumeration(uint256 tokenId) private {\r\n        // To prevent a gap in the tokens array, we store the last token in the index of the token to delete, and\r\n        // then delete the last slot (swap and pop).\r\n\r\n        uint256 lastTokenIndex = _allTokens.length - 1;\r\n        uint256 tokenIndex = _allTokensIndex[tokenId];\r\n\r\n        // When the token to delete is the last token, the swap operation is unnecessary. However, since this occurs so\r\n        // rarely (when the last minted token is burnt) that we still do the swap here to avoid the gas cost of adding\r\n        // an 'if' statement (like in _removeTokenFromOwnerEnumeration)\r\n        uint256 lastTokenId = _allTokens[lastTokenIndex];\r\n\r\n        _allTokens[tokenIndex] = lastTokenId; // Move the last token to the slot of the to-delete token\r\n        _allTokensIndex[lastTokenId] = tokenIndex; // Update the moved token's index\r\n\r\n        // This also deletes the contents at the last position of the array\r\n        delete _allTokensIndex[tokenId];\r\n        _allTokens.pop();\r\n    }\r\n}\r\n",
-  "sourcePath": "C:\\Users\\KGA_030\\Desktop\\class\\NFT_market\\smartContract\\@openzeppelin\\contracts\\token\\ERC721\\extensions\\ERC721Enumerable.sol",
+  "sourcePath": "C:\\Users\\qkrxo\\Desktop\\NFT_market\\smartContract\\@openzeppelin\\contracts\\token\\ERC721\\extensions\\ERC721Enumerable.sol",
   "ast": {
     "absolutePath": "project:/@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol",
     "exportedSymbols": {
-      "Address": [2623],
-      "Context": [2645],
-      "ERC165": [2844],
-      "ERC721": [1747],
-      "ERC721Enumerable": [2235],
-      "IERC165": [2856],
-      "IERC721": [1863],
-      "IERC721Enumerable": [2266],
-      "IERC721Metadata": [2293],
-      "IERC721Receiver": [1881],
-      "Math": [3721],
-      "Strings": [2820]
+      "Address": [
+        2623
+      ],
+      "Context": [
+        2645
+      ],
+      "ERC165": [
+        2844
+      ],
+      "ERC721": [
+        1747
+      ],
+      "ERC721Enumerable": [
+        2235
+      ],
+      "IERC165": [
+        2856
+      ],
+      "IERC721": [
+        1863
+      ],
+      "IERC721Enumerable": [
+        2266
+      ],
+      "IERC721Metadata": [
+        2293
+      ],
+      "IERC721Receiver": [
+        1881
+      ],
+      "Math": [
+        3721
+      ],
+      "Strings": [
+        2820
+      ]
     },
     "id": 2236,
     "license": "MIT",
@@ -420,7 +444,12 @@
     "nodes": [
       {
         "id": 1883,
-        "literals": ["solidity", "^", "0.8", ".0"],
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ],
         "nodeType": "PragmaDirective",
         "src": "131:23:7"
       },
@@ -455,7 +484,9 @@
             "baseName": {
               "id": 1887,
               "name": "ERC721",
-              "nameLocations": ["463:6:7"],
+              "nameLocations": [
+                "463:6:7"
+              ],
               "nodeType": "IdentifierPath",
               "referencedDeclaration": 1747,
               "src": "463:6:7"
@@ -468,7 +499,9 @@
             "baseName": {
               "id": 1889,
               "name": "IERC721Enumerable",
-              "nameLocations": ["471:17:7"],
+              "nameLocations": [
+                "471:17:7"
+              ],
               "nodeType": "IdentifierPath",
               "referencedDeclaration": 2266,
               "src": "471:17:7"
@@ -490,7 +523,14 @@
         "fullyImplemented": false,
         "id": 2235,
         "linearizedBaseContracts": [
-          2235, 2266, 1747, 2293, 1863, 2844, 2856, 2645
+          2235,
+          2266,
+          1747,
+          2293,
+          1863,
+          2844,
+          2856,
+          2645
         ],
         "name": "ERC721Enumerable",
         "nameLocation": "443:16:7",
@@ -690,7 +730,10 @@
             "visibility": "private"
           },
           {
-            "baseFunctions": [896, 2855],
+            "baseFunctions": [
+              896,
+              2855
+            ],
             "body": {
               "id": 1930,
               "nodeType": "Block",
@@ -902,7 +945,9 @@
                 {
                   "id": 1912,
                   "name": "IERC165",
-                  "nameLocations": ["1110:7:7"],
+                  "nameLocations": [
+                    "1110:7:7"
+                  ],
                   "nodeType": "IdentifierPath",
                   "referencedDeclaration": 2856,
                   "src": "1110:7:7"
@@ -910,7 +955,9 @@
                 {
                   "id": 1913,
                   "name": "ERC721",
-                  "nameLocations": ["1119:6:7"],
+                  "nameLocations": [
+                    "1119:6:7"
+                  ],
                   "nodeType": "IdentifierPath",
                   "referencedDeclaration": 1747,
                   "src": "1119:6:7"
@@ -993,7 +1040,9 @@
             "visibility": "public"
           },
           {
-            "baseFunctions": [2257],
+            "baseFunctions": [
+              2257
+            ],
             "body": {
               "id": 1958,
               "nodeType": "Block",
@@ -1128,7 +1177,10 @@
                       "id": 1942,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [4294967278, 4294967278],
+                      "overloadedDeclarations": [
+                        4294967278,
+                        4294967278
+                      ],
                       "referencedDeclaration": 4294967278,
                       "src": "1459:7:7",
                       "typeDescriptions": {
@@ -1349,7 +1401,9 @@
             "visibility": "public"
           },
           {
-            "baseFunctions": [2247],
+            "baseFunctions": [
+              2247
+            ],
             "body": {
               "id": 1969,
               "nodeType": "Block",
@@ -1457,7 +1511,9 @@
             "visibility": "public"
           },
           {
-            "baseFunctions": [2265],
+            "baseFunctions": [
+              2265
+            ],
             "body": {
               "id": 1992,
               "nodeType": "Block",
@@ -1574,7 +1630,10 @@
                       "id": 1979,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [4294967278, 4294967278],
+                      "overloadedDeclarations": [
+                        4294967278,
+                        4294967278
+                      ],
                       "referencedDeclaration": 4294967278,
                       "src": "1959:7:7",
                       "typeDescriptions": {
@@ -1742,7 +1801,9 @@
             "visibility": "public"
           },
           {
-            "baseFunctions": [1733],
+            "baseFunctions": [
+              1733
+            ],
             "body": {
               "id": 2072,
               "nodeType": "Block",
@@ -1951,7 +2012,10 @@
                             "id": 2018,
                             "name": "revert",
                             "nodeType": "Identifier",
-                            "overloadedDeclarations": [4294967277, 4294967277],
+                            "overloadedDeclarations": [
+                              4294967277,
+                              4294967277
+                            ],
                             "referencedDeclaration": 4294967277,
                             "src": "2569:6:7",
                             "typeDescriptions": {
@@ -1983,7 +2047,9 @@
                   }
                 },
                 {
-                  "assignments": [2025],
+                  "assignments": [
+                    2025
+                  ],
                   "declarations": [
                     {
                       "constant": false,
@@ -2748,7 +2814,9 @@
               "src": "3461:147:7",
               "statements": [
                 {
-                  "assignments": [2082],
+                  "assignments": [
+                    2082
+                  ],
                   "declarations": [
                     {
                       "constant": false,
@@ -3323,7 +3391,9 @@
               "src": "4681:907:7",
               "statements": [
                 {
-                  "assignments": [2132],
+                  "assignments": [
+                    2132
+                  ],
                   "declarations": [
                     {
                       "constant": false,
@@ -3457,7 +3527,9 @@
                   "src": "4866:51:7"
                 },
                 {
-                  "assignments": [2141],
+                  "assignments": [
+                    2141
+                  ],
                   "declarations": [
                     {
                       "constant": false,
@@ -3580,7 +3652,9 @@
                     "src": "5112:294:7",
                     "statements": [
                       {
-                        "assignments": [2150],
+                        "assignments": [
+                          2150
+                        ],
                         "declarations": [
                           {
                             "constant": false,
@@ -4075,7 +4149,9 @@
               "src": "5954:1008:7",
               "statements": [
                 {
-                  "assignments": [2193],
+                  "assignments": [
+                    2193
+                  ],
                   "declarations": [
                     {
                       "constant": false,
@@ -4171,7 +4247,9 @@
                   "src": "6136:46:7"
                 },
                 {
-                  "assignments": [2200],
+                  "assignments": [
+                    2200
+                  ],
                   "declarations": [
                     {
                       "constant": false,
@@ -4243,7 +4321,9 @@
                   "src": "6193:45:7"
                 },
                 {
-                  "assignments": [2206],
+                  "assignments": [
+                    2206
+                  ],
                   "declarations": [
                     {
                       "constant": false,
@@ -4633,7 +4713,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.11",
-  "updatedAt": "2022-12-22T03:38:21.492Z",
+  "updatedAt": "2022-12-22T13:59:22.127Z",
   "devdoc": {
     "details": "This implements an optional extension of {ERC721} defined in the EIP that adds enumerability of all the token ids in the contract as well as all token ids owned by each account.",
     "kind": "dev",
