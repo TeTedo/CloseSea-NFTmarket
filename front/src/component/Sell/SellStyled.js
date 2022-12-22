@@ -44,6 +44,8 @@ const SellInput = styled.input`
   height: 40px;
   width: 100%;
   font-size: 30px;
+  border-radius: 10px;
+  padding: 10px;
 `;
 
 const SellRightTitle = styled.div`
