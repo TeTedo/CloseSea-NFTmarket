@@ -8,36 +8,46 @@ import {
   UserContent,
   UserText,
 } from "./MenuComponent";
-
+import ConnectWalletBtn from "./ConnectWalletBtn";
 function MenuBar(props) {
   const navigate = useNavigate();
   return (
     <div>
       <MenuContent>
         {/* 메인 페이지 이동 */}
-        <MenuTitle onClick={() => {navigate("/")}}>
+        <MenuTitle
+          onClick={() => {
+            navigate("/");
+          }}
+        >
           Close Sea
         </MenuTitle>
         {/* 스왑 페이지 이동 */}
         <MenuText>
-          <TextContent onClick={()=>{navigate("/exchange")}}>Shop</TextContent>
-          <TextContent onClick={() => {navigate("/swap")}}>
+          <TextContent
+            onClick={() => {
+              navigate("/exchange");
+            }}
+          >
+            Shop
+          </TextContent>
+          <TextContent
+            onClick={() => {
+              navigate("/swap");
+            }}
+          >
             Swap
           </TextContent>
         </MenuText>
         <UserContent>
-        {/* 로그인 상태 확인 */}
+          {/* 로그인 상태 확인 */}
           {props.isLogin ? (
             <UserText>MyPage</UserText>
           ) : (
             <>
-            <UserText onClick={() => {navigate("/Login")}}>
-              Login
-            </UserText>
-            <UserText onClick={() => {navigate("/SignUp")}}>
-              Sign Up
-            </UserText>
-            
+              <UserText>
+                <ConnectWalletBtn />
+              </UserText>
             </>
           )}
         </UserContent>

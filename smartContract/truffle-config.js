@@ -7,7 +7,7 @@ module.exports = {
       network_id: "7722",
     },
   },
-
+  //npx ganache-cli --chainId 7722 --networkId 7722
   compilers: {
     solc: {
       version: "0.8.17",
