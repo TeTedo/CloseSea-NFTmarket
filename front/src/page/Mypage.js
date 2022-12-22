@@ -9,5 +9,4 @@ function Mypage() {
     </MyPageContent>
   );
 }
-
 export default Mypage;
