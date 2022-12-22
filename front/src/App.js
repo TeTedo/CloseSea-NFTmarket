@@ -7,28 +7,28 @@ import SignUp from "page/SignUp";
 import NFTBuy from "page/NFTBuy";
 import Mypage from "page/Mypage";
 import { Routes, Route } from "react-router-dom";
-import { React, useState } from "react";
+import { createContext, React, useState } from "react";
 import MenuBar from "component/MenuBar";
-const a = () => {
-  console.log("gd");
-};
-a();
+export const Context = createContext();
 function App() {
   // 로그인 확인
   const [isLogin, setIsLogin] = useState(true); // eslint-disable-line no-unused-vars
-
+  const [account, setAccount] = useState();
+  const [web3, setWeb3] = useState();
   return (
     <div className="App">
-      <MenuBar isLogin={isLogin} />
-      <Routes>
-        <Route path="/" element={<Main />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/exchange" element={<Exchange />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/swap" element={<Swap />} />
-        <Route path="/nftbuy/:id" element={<NFTBuy />} />
-        <Route path="/mypage" element={<Mypage />} />
-      </Routes>
+      <Context.Provider value={(account, web3, setAccount, setWeb3)}>
+        <MenuBar isLogin={isLogin} />
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/exchange" element={<Exchange />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/swap" element={<Swap />} />
+          <Route path="/nftbuy/:id" element={<NFTBuy />} />
+          <Route path="/mypage" element={<Mypage />} />
+        </Routes>
+      </Context.Provider>
     </div>
   );
 }
