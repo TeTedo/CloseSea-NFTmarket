@@ -27,7 +27,7 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/swap" element={<Swap />} />
         <Route path="/nftbuy/:id" element={<NFTBuy />} />
-        <Route path="/mypage" element={<Mypage/>}/>
+        <Route path="/mypage" element={<Mypage />} />
       </Routes>
     </div>
   );
