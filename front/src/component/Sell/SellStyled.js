@@ -1,6 +1,13 @@
 import styled from "styled-components";
 
-const SellIMG = styled.img``;
+const SellIMG = styled.img`
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+`;
+const SellCotent = styled.div`
+  overflow-x: hidden;
+`;
 
 const SellWrap = styled.div`
   background-color: #189cf4;
@@ -33,10 +40,6 @@ const SellRightDiv = styled.div`
   margin-left: 50px;
   width: 80%;
   height: 100%;
-  /* border: 3px solid black;
-  background-color: white;
-  border-radius: 12px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); */
 `;
 const SellInput = styled.input`
   margin: 30px 0px;
@@ -76,6 +79,19 @@ const SellBtn = styled.button`
     box-shadow: 0 7px 14px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   }
 `;
+const MyNFTContent = styled.div`
+  padding-bottom: 50px;
+`;
+const MyNFTTitle = styled.div`
+  padding: 30px 0;
+  text-align: center;
+  font-size: 50px;
+  font-weight: 600;
+`;
+const ChoiceNFT = styled.img`
+  border-radius: 10px;
+  width: 240px;
+`;
 
 export {
   SellIMG,
@@ -88,4 +104,8 @@ export {
   SellRightTitle,
   SellRightContent,
   SellBtn,
+  SellCotent,
+  MyNFTContent,
+  MyNFTTitle,
+  ChoiceNFT,
 };
