@@ -12,6 +12,7 @@ import { createContext, React, useEffect, useState } from "react";
 import MenuBar from "component/MenuBar";
 import Token from "contracts/Token.json";
 import NFT from "contracts/NftToken.json";
+import MyNFT from "page/MyNFT";
 import NFTtrade from "contracts/NFTtrade.json";
 import Web3 from "web3/dist/web3.min";
 export const Context = createContext();
@@ -63,6 +64,7 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/swap" element={<Swap />} />
           <Route path="/nftbuy/:id" element={<NFTBuy />} />
+          <Route path="/mynft/:id" element={<MyNFT />} />
           <Route path="/mypage" element={<Mypage />} />
           <Route path="/sell" element={<Sell />} />
         </Routes>
