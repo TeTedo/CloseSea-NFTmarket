@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {
   MyPageContent,
   AccountText,
@@ -7,34 +7,39 @@ import {
 } from "../component/MyPage/MypageSyled";
 import NFTComponent from "component/MyPage/NFTComponent";
 import NFTImg from "../image/index";
-
+import { Context } from "App";
+import axios from "axios";
 function Mypage() {
+  const { account, NFTtrade } = useContext(Context);
+  const [list, setList] = useState([]);
+  const [listData, setListData] = useState([]);
+  useEffect(() => {
+    if (!NFTtrade) return;
+    if (!account) return;
+    (async () => {
+      setList(await NFTtrade.instance.methods.getOwnerToken(account).call());
+    })();
+  }, [NFTtrade]);
+  useEffect(() => {
+    if (!list.length) return;
+    const temp = [];
+    list.forEach(async (v) => {
+      const tokenData = axios.get(`http://localhost/metaData/${v}`);
+      temp.push({ ...tokenData.data, price: v.price, id: v.tokenId });
+    });
+    setListData(temp);
+  }, [list]);
   return (
     <MyPageContent>
-      <AccountText>
-        Account : 0xf4EB0bF726fd2c0Bf892e7dBcb320f4A0F53F1a5
-      </AccountText>
+      <AccountText>{account}</AccountText>
       <CollectedTitle>Collected</CollectedTitle>
       <CollectedContent>
         <NFTComponent img={NFTImg[1]} />
         <NFTComponent img={NFTImg[1]} />
         <NFTComponent img={NFTImg[1]} />
-        <NFTComponent img={NFTImg[1]} />
-        <NFTComponent img={NFTImg[1]} />
-        <NFTComponent img={NFTImg[1]} />
-        <NFTComponent img={NFTImg[1]} />
-        <NFTComponent img={NFTImg[1]} />
-        <NFTComponent img={NFTImg[1]} />
-        <NFTComponent img={NFTImg[1]} />
-        <NFTComponent img={NFTImg[1]} />
-        <NFTComponent img={NFTImg[1]} />
-        <NFTComponent img={NFTImg[1]} />
-        <NFTComponent img={NFTImg[1]} />
-        <NFTComponent img={NFTImg[1]} />
-        <NFTComponent img={NFTImg[1]} />
-        <NFTComponent img={NFTImg[1]} />
-        <NFTComponent img={NFTImg[1]} />
-        <NFTComponent img={NFTImg[1]} />
+        {listData.map((v, idx) => (
+          <NFTComponent id={v.id} key={idx} price={v.price} />
+        ))}
       </CollectedContent>
     </MyPageContent>
   );

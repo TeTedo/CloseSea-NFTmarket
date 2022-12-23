@@ -37,29 +37,15 @@ contract NftToken is Ownable, ERC721A{
         require(mintCount[msg.sender] + _mintAmount <= mintLimit, "mint limit exceeded");
         _safeMint(msg.sender, _mintAmount);
     }
-
-    // function refundIfOver(uint256 _mintPrice) private {
-    //     require(msg.value >= _mintPrice, "Need to send more ETH.");
-    //     if (msg.value > _mintPrice) {
-    //         payable(msg.sender).transfer(msg.value - _mintPrice);
-    //     }
-    // }
-
     function numberMinted(address owner) public view returns (uint256) {
         return _numberMinted(owner);
     }
-
-    
+   
     // // metadata URI
-    string private _baseTokenURI = "http://localhost:8000/metaData/";
+    string private _baseTokenURI = "https://gateway.pinata.cloud/ipfs/QmTr3GC4F8iQJXUSHxfjGHm3zscUVZ8JeHHfio432Do3Bn/";
 
     function _baseURI() internal view virtual override returns (string memory) {
         return _baseTokenURI;
     }
 
-    // function setBaseURI(string calldata baseURI) external onlyOwner {
-    //     _baseTokenURI = baseURI;
-    // }
 } 
-
-//d,d,5,100,"http://localhost:8000/metaData/"
