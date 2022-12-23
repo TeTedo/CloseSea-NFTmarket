@@ -7,9 +7,9 @@ import {
   NFTPictureSize,
 } from "component/exchange/ExchangeStyled";
 
-function NFTComponent({ id, price }) {
+function NFTComponent({ id, price, onClick }) {
   return (
-    <NFTBox>
+    <NFTBox onClick={onClick}>
       <NFTPictureSize>
         <NFTPicture src={`/image/${id}.png`} />
       </NFTPictureSize>
