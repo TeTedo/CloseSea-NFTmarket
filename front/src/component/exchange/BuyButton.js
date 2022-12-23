@@ -3,7 +3,10 @@ import { NFTBuyBtn } from "./ExchangeStyled";
 import { Context } from "App";
 const BuyButton = () => {
   const { account, NftTrade } = useContext(Context);
-  const buyNFT = () => {};
+  const buyNFT = async () => {
+    await NftTrade.instance.methods.purchaseToken();
+    console.log(account);
+  };
   return <NFTBuyBtn onClick={buyNFT}>⚡️Buy Now</NFTBuyBtn>;
 };
 
