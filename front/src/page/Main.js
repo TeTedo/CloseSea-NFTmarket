@@ -50,7 +50,12 @@ function Main() {
             <ImgText opacity={opacity2} transform={transform2}>
               <p>Try owning various NFTs through minting.</p>
               <p>Press the button below.</p>
-              <MintingButton></MintingButton>
+              <div>
+                <span>+</span>
+                <span>0</span>
+                <span>-</span>
+              </div>
+              <MintingButton />
             </ImgText>
           </RightConent>
         </MainContent>
