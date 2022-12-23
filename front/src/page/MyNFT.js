@@ -6,10 +6,6 @@ import {
   RightContnent,
   RightTitle,
   RightSub,
-  RightBuyContent,
-  RightBuyText,
-  RightBuyPrice,
-  RightBuyBtn,
   RightNftProperties,
   RightNftPropertiesText,
 } from "component/NFTBuy/NFTBuyStyled";
@@ -36,11 +32,6 @@ function MyNFT() {
           <PropertiesComnent title="HEADER" content="Header" />
           <PropertiesComnent title="MOUSE" content="Smile" />
         </RightNftProperties>
-        <RightBuyContent>
-          <RightBuyText>Current price</RightBuyText>
-          <RightBuyPrice>8.1123 ETH</RightBuyPrice>
-          <RightBuyBtn>Buy</RightBuyBtn>
-        </RightBuyContent>
       </RightContnent>
     </SellContent>
   );
