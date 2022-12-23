@@ -22,7 +22,7 @@ function Mypage() {
     if (!list.length) return;
     const temp = [];
     list.forEach(async (v) => {
-      temp.push({ price: v.price, id: +v.tokenId + 1 });
+      temp.push({ price: v.price, id: v.tokenId });
     });
     setListData(temp);
   }, [list]);

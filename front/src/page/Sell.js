@@ -35,13 +35,11 @@ const Sell = () => {
     if (!list.length) return;
     let temp = [];
     list.forEach(async (v) => {
-      temp.push({ price: v.price, id: +v.tokenId + 1 });
+      temp.push({ price: v.price, id: v.tokenId });
     });
     // 판매리스트에 올라간것들은 빼고 보여주기
     (async () => {
-      let list = await NFTtrade.instance.methods.getSaleTokenList().call();
-      list = list.map((v) => +v.tokenId + 1);
-      temp = temp.filter((v) => !list.includes(v.id));
+      temp = temp.filter((v) => v.price === "0");
     })();
     setListData(temp);
   }, [list]);
@@ -57,7 +55,9 @@ const Sell = () => {
             <SellIMG src={sellImg} />
           </SellLeftDiv>
           <SellRightDiv>
-            <SellRightTitle>{tokenId ? `${tokenId}번 쫄` : ""}</SellRightTitle>
+            <SellRightTitle>
+              {tokenId ? `${+tokenId + 1}번 쫄` : ""}
+            </SellRightTitle>
             <SellRightContent>ZOL</SellRightContent>
             <SellRightContent style={{ margin: "20px 0" }}>
               owner : {account.slice(0, 5)}...{account.slice(37)}

@@ -97,7 +97,7 @@ import img96 from "./96.png";
 import img97 from "./97.png";
 import img98 from "./98.png";
 import img99 from "./99.png";
-import img100 from "./100.png";
+import img100 from "./0.png";
 
 const a = [];
 a.push(img1);
