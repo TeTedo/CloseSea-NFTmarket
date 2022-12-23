@@ -3,7 +3,7 @@ import {
   PropertiesBox,
   PropertiesTitle,
   PropertiesContent,
-  PropertiesSub,
+  // PropertiesSub,
 } from "./NFTBuyStyled";
 
 function PropertiesComnent(props) {
@@ -11,7 +11,7 @@ function PropertiesComnent(props) {
     <PropertiesBox>
       <PropertiesTitle>{props.title}</PropertiesTitle>
       <PropertiesContent>{props.content}</PropertiesContent>
-      <PropertiesSub>24% have this trait</PropertiesSub>
+      {/* <PropertiesSub>24% have this trait</PropertiesSub> */}
     </PropertiesBox>
   );
 }

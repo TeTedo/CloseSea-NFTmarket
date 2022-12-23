@@ -2,8 +2,8 @@
   "compiler": {
     "version": "0.8.17+commit.8df45f5f"
   },
+  "CA": "0x0AF3f3C084d0455c50B23B8787D8cFaE2b9c6d65",
   "language": "Solidity",
-  "CA": "0x42c07DC2B60C65fF910976624F92ee4Ff569a385",
   "output": {
     "abi": [
       {
@@ -187,6 +187,25 @@
         "outputs": [
           {
             "internalType": "contract Token",
+            "name": "",
+            "type": "address"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "_tokenId",
+            "type": "uint256"
+          }
+        ],
+        "name": "findTokenOwner",
+        "outputs": [
+          {
+            "internalType": "address",
             "name": "",
             "type": "address"
           }
@@ -699,11 +718,11 @@
       ]
     },
     "NftToken.sol": {
-      "keccak256": "0xebd75bc39f30fb913ae8168df3357d3078d7f920a8c86c9920b78bff0141b8bc",
+      "keccak256": "0x69ad996fdfb27846b029d38a9c9a8ae002896cd28ca9240f992514833ab824be",
       "license": "MIT",
       "urls": [
-        "bzz-raw://8e42d56825a1c40e73972720aadaa0a36482c69eb2e108df3ccf3d37193e30dd",
-        "dweb:/ipfs/QmUwvNxmkLwUN7EuCCrDJ2J7WvAXTcQ8U2wLMgPVBL4LFb"
+        "bzz-raw://d2ade829b280c71b03668aaed3cf16fbe26f92bcde683cf421bf2c966a03d889",
+        "dweb:/ipfs/QmNug3SabteddNqYuaqZqNsBVpnSL3EE9hgQfddj8tTMig"
       ]
     },
     "Token.sol": {

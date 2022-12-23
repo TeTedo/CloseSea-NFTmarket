@@ -52,4 +52,8 @@ contract NftToken is Ownable, ERC721A{
     function getCA() external view returns(address){
         return address(this);
     }
+
+    function findTokenOwner(uint _tokenId) public view returns(address){
+        return ownerOf(_tokenId);
+    }
 } 

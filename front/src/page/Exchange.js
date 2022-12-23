@@ -17,17 +17,24 @@ const Exchange = () => {
     if (!NFTtrade) return;
 
     (async () => {
-      const list = await NFTtrade.instance.methods.getSaleTokenList().call();
-      setList(list);
+      const list = await NFTtrade.instance.methods
+        .getSaleTokenList()
+        .call()
+        .catch(() => {
+          alert("판매중인 NFT가 없습니다.");
+        });
+      if (list) setList(list);
     })();
   }, [NFTtrade]);
   useEffect(() => {
-    if (!list.length) return;
-    const temp = [];
-    list.forEach(async (v) => {
-      temp.push({ price: v.price, id: v.tokenId });
-    });
-    setListData(temp);
+    (() => {
+      if (!list.length) return;
+      const temp = [];
+      list.forEach(async (v) => {
+        temp.push({ price: v.price, id: v.tokenId });
+      });
+      setListData(temp);
+    })();
   }, [list]);
   return (
     <ExchangePosition>

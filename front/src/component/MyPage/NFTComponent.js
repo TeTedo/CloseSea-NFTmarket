@@ -13,7 +13,7 @@ function NFTComponent({ id, price, onClick }) {
       <NFTPictureSize>
         <NFTPicture src={`/image/${id}.png`} />
       </NFTPictureSize>
-      <NFTNumber>{id}번 쫄</NFTNumber>
+      <NFTNumber>{+id + 1}번 쫄</NFTNumber>
       <NFTPrice>
         {price !== "0" ? `${price / 10 ** 18} ZOL에 판매중` : ""}
       </NFTPrice>

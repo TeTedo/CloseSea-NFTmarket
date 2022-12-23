@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {
   SellContent,
   LeftImg,
@@ -10,20 +10,28 @@ import {
   RightNftPropertiesText,
 } from "component/NFTBuy/NFTBuyStyled";
 import PropertiesComnent from "component/NFTBuy/PropertiesComnent";
-import NftImg from "../image/index";
 import { useParams } from "react-router-dom";
-
+import { Context } from "App";
 function MyNFT() {
+  const { NFT } = useContext(Context);
   const parmas = useParams();
   const id = parmas.id;
+  const [owner, setOwner] = useState();
+  useEffect(() => {
+    (async () => {
+      if (!NFT) return;
+      const owner = await NFT.instance.methods.findTokenOwner(id).call();
+      setOwner(owner);
+    })();
+  }, [NFT]);
   return (
     <SellContent>
       <LeftContent>
-        <LeftImg src={NftImg[id]} alt="" />
+        <LeftImg src={`/image/${id}.png`} alt="" />
       </LeftContent>
       <RightContnent>
-        <RightTitle>Mask Man #</RightTitle>
-        <RightSub>Owned by (닉네임)</RightSub>
+        <RightTitle>Mask Man #{id}</RightTitle>
+        <RightSub>Owned by {owner}</RightSub>
         <RightNftPropertiesText>Properties</RightNftPropertiesText>
         <RightNftProperties>
           <PropertiesComnent title="BACKGROUND" content="Blue" />

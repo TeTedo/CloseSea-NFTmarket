@@ -33,21 +33,13 @@ function Mypage() {
       <AccountText>{account}</AccountText>
       <CollectedTitle>Collected</CollectedTitle>
       <CollectedContent>
-        <NFTComponent
-          id="1"
-          key="1"
-          price="0.8"
-          onClick={() => {
-            navigate("/mynft/" + 0);
-          }}
-        />
         {listData.map((v, idx) => (
           <NFTComponent
             id={v.id}
             key={idx}
             price={v.price}
             onClick={() => {
-              navigate("/mynft/" + (v.id - 1));
+              navigate("/mynft/" + v.id);
             }}
           />
         ))}
