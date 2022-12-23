@@ -8,10 +8,9 @@ import {
   NFTImg,
   NFTContents,
   ImgText,
-  MintingBtn,
   RightConent,
 } from "component/Main/BackgroundStyled.";
-
+import MintingButton from "component/Main/MintingButton";
 function Main() {
   const [opacity, setOpacity] = useState("");
   const [transform, setTransform] = useState("");
@@ -51,7 +50,7 @@ function Main() {
             <ImgText opacity={opacity2} transform={transform2}>
               <p>Try owning various NFTs through minting.</p>
               <p>Press the button below.</p>
-              <MintingBtn>Going to do Minting</MintingBtn>
+              <MintingButton></MintingButton>
             </ImgText>
           </RightConent>
         </MainContent>
