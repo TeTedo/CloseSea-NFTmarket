@@ -11,9 +11,29 @@ import NFTImg from "../image/index";
 function Mypage() {
   return (
     <MyPageContent>
-      <AccountText>Account : 0x411ab2b3b54n1b</AccountText>
+      <AccountText>
+        Account : 0xf4EB0bF726fd2c0Bf892e7dBcb320f4A0F53F1a5
+      </AccountText>
       <CollectedTitle>Collected</CollectedTitle>
       <CollectedContent>
+        <NFTComponent img={NFTImg[1]} />
+        <NFTComponent img={NFTImg[1]} />
+        <NFTComponent img={NFTImg[1]} />
+        <NFTComponent img={NFTImg[1]} />
+        <NFTComponent img={NFTImg[1]} />
+        <NFTComponent img={NFTImg[1]} />
+        <NFTComponent img={NFTImg[1]} />
+        <NFTComponent img={NFTImg[1]} />
+        <NFTComponent img={NFTImg[1]} />
+        <NFTComponent img={NFTImg[1]} />
+        <NFTComponent img={NFTImg[1]} />
+        <NFTComponent img={NFTImg[1]} />
+        <NFTComponent img={NFTImg[1]} />
+        <NFTComponent img={NFTImg[1]} />
+        <NFTComponent img={NFTImg[1]} />
+        <NFTComponent img={NFTImg[1]} />
+        <NFTComponent img={NFTImg[1]} />
+        <NFTComponent img={NFTImg[1]} />
         <NFTComponent img={NFTImg[1]} />
       </CollectedContent>
     </MyPageContent>
