@@ -9,7 +9,6 @@ const ConnectWalletBtn = ({ setAccount }) => {
   const connectWallet = async () => {
     const account = await getRequestAccount();
     setAccount(account);
-    console.log(account);
     window.ethereum.on("accountsChanged", async () => {
       const account = await getRequestAccount();
       setAccount(account);

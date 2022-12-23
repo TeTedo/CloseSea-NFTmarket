@@ -5,18 +5,19 @@ import {
   NFTNumber,
   NFTPrice,
   NFTPictureSize,
-  NFTSubText,
 } from "component/exchange/ExchangeStyled";
 
-function NFTComponent(props) {
+function NFTComponent({ id, price }) {
   return (
     <NFTBox>
       <NFTPictureSize>
-        <NFTPicture src={props.img} />
+        <NFTPicture src={`/image/${id}.png`} />
       </NFTPictureSize>
-      <NFTNumber>123</NFTNumber>
-      <NFTPrice>0.8ETH</NFTPrice>
-      <NFTSubText>Ends in 24hours</NFTSubText>
+      <NFTNumber>{id}번 쫄</NFTNumber>
+      <NFTPrice>
+        {price !== "0" ? `${price / 10 ** 18} ZOL에 판매중` : ""}
+      </NFTPrice>
+      {/* <NFTSubText>Ends in 24hours</NFTSubText> */}
     </NFTBox>
   );
 }

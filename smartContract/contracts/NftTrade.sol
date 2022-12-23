@@ -21,10 +21,10 @@ contract NFTtrade{
 
     // 판매등록
     function salesToken(uint _tokenId, uint _price) public{
+        nft.setApprovalForAll(nft.getCA(), true);
         address tokenOwner = nft.ownerOf(_tokenId);
         require(tokenOwner == msg.sender);
         require(_price > 0 );
-        require(nft.isApprovedForAll(msg.sender, address(this)));
 
         tokenPrices[_tokenId] = _price;
         SaleTokenList.push(_tokenId);
@@ -38,7 +38,7 @@ contract NFTtrade{
         require(tokenPrices[_tokenId] > 0);
         // 가격 체크하는곳
         require(coin.checkCoinBalance(msg.sender) > tokenPrices[_tokenId]);
-        
+        coin.mintNft(msg.sender, tokenPrices[_tokenId]);
         nft.transferFrom(tokenOwner, msg.sender, _tokenId);
         tokenPrices[_tokenId] = 0;
         popSaleToken(_tokenId);

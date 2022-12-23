@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {
   SellIMG,
   SellTitleDiv,
@@ -9,20 +9,45 @@ import {
   SellInput,
   SellText,
   SellRightContent,
-  SellBtn,
   MyNFTContent,
   SellCotent,
   MyNFTTitle,
   ChoiceNFT,
 } from "component/Sell/SellStyled";
-import NFTImg from "../image/index";
+import SellButton from "component/Sell/SellButton";
 import { CollectedContent } from "component/MyPage/MypageSyled";
-
+import { Context } from "App";
 const Sell = () => {
   const [sellImg, setSellImg] = useState("");
+  const [tokenId, setTokenId] = useState("");
+  const [price, setPrice] = useState("");
+  const { account, NFTtrade } = useContext(Context);
+  const [list, setList] = useState([]);
+  const [listData, setListData] = useState([]);
+  useEffect(() => {
+    if (!NFTtrade) return;
+    if (!account) return;
+    (async () => {
+      setList(await NFTtrade.instance.methods.getOwnerToken(account).call());
+    })();
+  }, [NFTtrade]);
+  useEffect(() => {
+    if (!list.length) return;
+    let temp = [];
+    list.forEach(async (v) => {
+      temp.push({ price: v.price, id: +v.tokenId + 1 });
+    });
+    // 판매리스트에 올라간것들은 빼고 보여주기
+    (async () => {
+      let list = await NFTtrade.instance.methods.getSaleTokenList().call();
+      list = list.map((v) => +v.tokenId + 1);
+      temp = temp.filter((v) => !list.includes(v.id));
+    })();
+    setListData(temp);
+  }, [list]);
   const MySrc = (e) => {
+    setTokenId(e.target.dataset.id);
     setSellImg(e.target.src);
-    console.log(e.target.src);
   };
   return (
     <SellCotent>
@@ -32,28 +57,35 @@ const Sell = () => {
             <SellIMG src={sellImg} />
           </SellLeftDiv>
           <SellRightDiv>
-            <SellRightTitle>HIHI</SellRightTitle>
-            <SellRightContent>Test</SellRightContent>
+            <SellRightTitle>{tokenId ? `${tokenId}번 쫄` : ""}</SellRightTitle>
+            <SellRightContent>ZOL</SellRightContent>
             <SellRightContent style={{ margin: "20px 0" }}>
-              owner :
+              owner : {account.slice(0, 5)}...{account.slice(37)}
             </SellRightContent>
             <SellRightContent>
-              <SellInput placeholder="price"></SellInput>
+              <SellInput
+                placeholder="price"
+                onChange={(e) => {
+                  setPrice(e.target.value);
+                }}
+              ></SellInput>
             </SellRightContent>
             <SellText></SellText>
-            <SellBtn>Sell</SellBtn>
+            <SellButton tokenId={tokenId} price={price} />
           </SellRightDiv>
         </SellTitleDiv>
       </SellWrap>
       <MyNFTContent>
         <MyNFTTitle>My Collected</MyNFTTitle>
         <CollectedContent>
-          <ChoiceNFT src={NFTImg[0]} onClick={MySrc} />
-          <ChoiceNFT src={NFTImg[1]} onClick={MySrc} />
-          <ChoiceNFT src={NFTImg[2]} onClick={MySrc} />
-          <ChoiceNFT src={NFTImg[3]} onClick={MySrc} />
-          <ChoiceNFT src={NFTImg[4]} onClick={MySrc} />
-          <ChoiceNFT src={NFTImg[5]} onClick={MySrc} />
+          {listData.map((v, idx) => (
+            <ChoiceNFT
+              key={idx}
+              src={`/image/${v.id}.png`}
+              onClick={MySrc}
+              data-id={v.id}
+            />
+          ))}
         </CollectedContent>
       </MyNFTContent>
     </SellCotent>

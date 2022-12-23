@@ -5,17 +5,17 @@ import {
   NFTNumber,
   NFTPrice,
   NFTPictureSize,
-  NFTBuyBtn,
 } from "./ExchangeStyled";
+import BuyButton from "./BuyButton";
 function ExchangeComponent(props) {
   return (
     <NFTBox onClick={props.onClick}>
       <NFTPictureSize>
-        <NFTPicture src={`image${props.id}.png`} />
+        <NFTPicture src={`/image/${+props.id + 1}.png`} />
       </NFTPictureSize>
-      <NFTNumber>{props.id}</NFTNumber>
-      <NFTPrice>{props.price}</NFTPrice>
-      <NFTBuyBtn>⚡️Buy Now</NFTBuyBtn>
+      <NFTNumber>{props.id}번 쫄</NFTNumber>
+      <NFTPrice>가격 : {props.price / 10 ** 18} ZOL</NFTPrice>
+      <BuyButton id={props.id} />
     </NFTBox>
   );
 }

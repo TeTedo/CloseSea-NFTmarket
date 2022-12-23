@@ -68,7 +68,7 @@ function Main() {
                 <div>{number}</div>
                 <span onClick={NumPlus}>+</span>
               </NFTNumber>
-              <MintingButton />
+              <MintingButton mintAmount={number} />
             </ImgText>
           </RightConent>
         </MainContent>

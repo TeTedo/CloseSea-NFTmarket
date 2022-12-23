@@ -2,8 +2,8 @@
   "compiler": {
     "version": "0.8.17+commit.8df45f5f"
   },
-  "CA": "0x32632874B21061AcA98b2c3e29cA78cCdeb647de",
   "language": "Solidity",
+  "CA": "0xcf28B537Bec6de43A9a62857bf923a8Fe90E7E83",
   "output": {
     "abi": [
       {

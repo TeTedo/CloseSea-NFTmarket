@@ -8,7 +8,6 @@ import {
 import ExchangeComponent from "component/exchange/ExchangeComponent";
 import { useNavigate } from "react-router-dom";
 import { Context } from "App";
-import axios from "axios";
 const Exchange = () => {
   const { NFTtrade } = useContext(Context);
   const navigate = useNavigate();
@@ -26,8 +25,7 @@ const Exchange = () => {
     if (!list.length) return;
     const temp = [];
     list.forEach(async (v) => {
-      const tokenData = axios.get(`http://localhost/metaData/${v}`);
-      temp.push({ ...tokenData.data, price: v.price, id: v.tokenId });
+      temp.push({ price: v.price, id: v.tokenId });
     });
     setListData(temp);
   }, [list]);

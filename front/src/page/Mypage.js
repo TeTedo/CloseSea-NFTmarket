@@ -6,9 +6,7 @@ import {
   CollectedTitle,
 } from "../component/MyPage/MypageSyled";
 import NFTComponent from "component/MyPage/NFTComponent";
-import NFTImg from "../image/index";
 import { Context } from "App";
-import axios from "axios";
 function Mypage() {
   const { account, NFTtrade } = useContext(Context);
   const [list, setList] = useState([]);
@@ -24,8 +22,7 @@ function Mypage() {
     if (!list.length) return;
     const temp = [];
     list.forEach(async (v) => {
-      const tokenData = axios.get(`http://localhost/metaData/${v}`);
-      temp.push({ ...tokenData.data, price: v.price, id: v.tokenId });
+      temp.push({ price: v.price, id: +v.tokenId + 1 });
     });
     setListData(temp);
   }, [list]);
@@ -34,9 +31,6 @@ function Mypage() {
       <AccountText>{account}</AccountText>
       <CollectedTitle>Collected</CollectedTitle>
       <CollectedContent>
-        <NFTComponent img={NFTImg[1]} />
-        <NFTComponent img={NFTImg[1]} />
-        <NFTComponent img={NFTImg[1]} />
         {listData.map((v, idx) => (
           <NFTComponent id={v.id} key={idx} price={v.price} />
         ))}
