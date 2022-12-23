@@ -74,7 +74,7 @@ contract NFTtrade{
     // 소유하고 있는 nft 보기
     function getOwnerToken(address _tokenOwner) public view returns (TokenInfo[] memory){
         uint balance = nft.balanceOf(_tokenOwner);
-        require(balance != 0);
+        require(balance != 0, "There is no NFT!");
         TokenInfo[] memory list = new TokenInfo[](balance);
 
         for(uint i = 0; i < balance; i++){

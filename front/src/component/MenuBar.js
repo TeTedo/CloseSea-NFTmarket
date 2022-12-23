@@ -10,7 +10,7 @@ import {
 } from "./MenuComponent";
 import ConnectWalletBtn from "./ConnectWalletBtn";
 import { Context } from "App";
-function MenuBar({ setAccount, setWeb3 }) {
+function MenuBar({ setAccount }) {
   const { account } = useContext(Context);
   const navigate = useNavigate();
   return (
@@ -54,7 +54,7 @@ function MenuBar({ setAccount, setWeb3 }) {
           ) : (
             <>
               <UserText>
-                <ConnectWalletBtn setAccount={setAccount} setWeb3={setWeb3} />
+                <ConnectWalletBtn setAccount={setAccount} />
               </UserText>
             </>
           )}

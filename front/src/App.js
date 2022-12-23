@@ -13,32 +13,46 @@ import MenuBar from "component/MenuBar";
 import Token from "contracts/Token.json";
 import NFT from "contracts/NftToken.json";
 import NFTtrade from "contracts/NFTtrade.json";
+import Web3 from "web3/dist/web3.min";
 export const Context = createContext();
 function App() {
   // 로그인 확인
   const [account, setAccount] = useState();
   const [web3, setWeb3] = useState();
-  const tempObj = {};
+  const tempArr = [];
+  const [token, setToken] = useState();
+  const [nft, setNft] = useState();
+  const [nftTrade, setNftTrade] = useState();
+  useEffect(() => {
+    if (window.ethereum) {
+      const web3 = new Web3(window.ethereum);
+      setWeb3(web3);
+    }
+  }, []);
   useEffect(() => {
     const contracts = [Token, NFT, NFTtrade];
     (async () => {
+      if (!web3) return;
       for (const contract of contracts) {
-        tempObj[contract] = "";
-        const methods =
-          contract.output.contracts[`${contract}.sol`][contract].devdoc.methods;
-        tempObj[contract].methods = methods;
+        const abi = contract.output.abi;
+        const CA = contract.CA;
+        const instance = await new web3.eth.Contract(abi, CA);
+        tempArr.push({ instance, CA });
       }
+      setToken(tempArr[0]);
+      setNft(tempArr[1]);
+      setNftTrade(tempArr[2]);
     })();
-  }, []);
+  }, [web3]);
   return (
     <div className="App">
       <Context.Provider
         value={{
           account,
           web3,
-          Token: tempObj.Token,
-          NFT: tempObj.NFT,
-          NFTtrade: tempObj.NFTtrade,
+          Token: token,
+          NFT: nft,
+          NFTtrade: nftTrade,
         }}
       >
         <MenuBar setAccount={setAccount} setWeb3={setWeb3} />

@@ -2,12 +2,16 @@ import React, { useContext } from "react";
 import { MintingBtn } from "./BackgroundStyled.";
 import { Context } from "App";
 const MintingButton = () => {
-  const { Token, NFT } = useContext(Context);
+  const { account, Token, NFT } = useContext(Context);
   const minting = async () => {
     const mintAmount = 0;
-    const mintPrice = await NFT.methods.getMintPrice();
-    await NFT.methods._minting(mintAmount);
-    await Token.methods.mintNft(mintPrice, mintAmount);
+    const mintPrice = await NFT.instance.methods.getMintPrice().call();
+    await NFT.instance.methods._minting(mintAmount).send({
+      from: account,
+    });
+    await Token.instance.methods.mintNft(mintPrice, mintAmount).send({
+      from: account,
+    });
   };
   return <MintingBtn onClick={minting}>Going to do Minting</MintingBtn>;
 };

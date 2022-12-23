@@ -15,18 +15,22 @@ const Exchange = () => {
   const [list, setList] = useState([]);
   const [listData, setListData] = useState([]);
   useEffect(() => {
+    if (!NFTtrade) return;
+
     (async () => {
-      const list = await NFTtrade.methods.getSaleTokenList();
+      const list = await NFTtrade.instance.methods.getSaleTokenList().call();
       setList(list);
     })();
+  }, [NFTtrade]);
+  useEffect(() => {
+    if (!list.length) return;
     const temp = [];
     list.forEach(async (v) => {
       const tokenData = axios.get(`http://localhost/metaData/${v}`);
       temp.push({ ...tokenData.data, price: v.price, id: v.tokenId });
     });
     setListData(temp);
-  });
-
+  }, [list]);
   return (
     <ExchangePosition>
       <ExchangeTitle>
