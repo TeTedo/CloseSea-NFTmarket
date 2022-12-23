@@ -9,6 +9,7 @@ import {
   NFTContents,
   ImgText,
   RightConent,
+  NFTNumber,
 } from "component/Main/BackgroundStyled.";
 import MintingButton from "component/Main/MintingButton";
 function Main() {
@@ -16,6 +17,7 @@ function Main() {
   const [transform, setTransform] = useState("");
   const [opacity2, setOpacity2] = useState("");
   const [transform2, setTransform2] = useState("");
+  const [number, setNumber] = useState(0);
 
   useEffect(() => {
     setOpacity("1");
@@ -25,6 +27,17 @@ function Main() {
       setTransform2("0");
     }, 500);
   }, []);
+
+  const NumPlus = () => {
+    if (number < 10) {
+      setNumber(number + 1);
+    }
+  };
+  const NumMinus = () => {
+    if (number > 0) {
+      setNumber(number - 1);
+    }
+  };
 
   return (
     <div className="">
@@ -50,11 +63,11 @@ function Main() {
             <ImgText opacity={opacity2} transform={transform2}>
               <p>Try owning various NFTs through minting.</p>
               <p>Press the button below.</p>
-              <div>
-                <span>+</span>
-                <span>0</span>
-                <span>-</span>
-              </div>
+              <NFTNumber>
+                <span onClick={NumMinus}>-</span>
+                <div>{number}</div>
+                <span onClick={NumPlus}>+</span>
+              </NFTNumber>
               <MintingButton />
             </ImgText>
           </RightConent>

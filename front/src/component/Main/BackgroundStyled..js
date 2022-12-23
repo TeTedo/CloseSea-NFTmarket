@@ -131,6 +131,7 @@ const ImgText = styled.div`
   font-weight: 600;
   p:first-child {
     font-size: 80px;
+    margin: 50px 0;
   }
 `;
 const MintingBtn = styled.button`
@@ -151,6 +152,20 @@ const RightConent = styled.div`
   position: relative;
   bottom: 50px;
 `;
+const NFTNumber = styled.div`
+  position: relative;
+  bottom: 30px;
+  display: flex;
+  justify-content: center;
+  /* padding: 10px; */
+  div {
+    width: 50px;
+    padding: 0 30px;
+  }
+  span:hover {
+    color: white;
+  }
+`;
 export {
   BackGround,
   MainVisual,
@@ -164,4 +179,5 @@ export {
   ImgText,
   MintingBtn,
   RightConent,
+  NFTNumber,
 };

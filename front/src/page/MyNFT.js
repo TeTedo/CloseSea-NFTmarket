@@ -1,6 +1,4 @@
 import React from "react";
-import { useParams } from "react-router-dom";
-import NftImg from "image/index";
 import {
   SellContent,
   LeftImg,
@@ -16,10 +14,12 @@ import {
   RightNftPropertiesText,
 } from "component/NFTBuy/NFTBuyStyled";
 import PropertiesComnent from "component/NFTBuy/PropertiesComnent";
+import NftImg from "../image/index";
+import { useParams } from "react-router-dom";
 
-function NFTBuy() {
-  const params = useParams();
-  const id = params.id;
+function MyNFT() {
+  const parmas = useParams();
+  const id = parmas.id;
   return (
     <SellContent>
       <LeftContent>
@@ -46,4 +46,4 @@ function NFTBuy() {
   );
 }
 
-export default NFTBuy;
+export default MyNFT;
