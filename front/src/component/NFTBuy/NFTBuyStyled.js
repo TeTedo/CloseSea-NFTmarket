@@ -95,7 +95,15 @@ const PropertiesSub = styled.div`
   /* font-weight: 600; */
   color: rgba(0, 0, 0, 0.4);
 `;
-
+const SellInput = styled.input`
+  margin: 30px 0px;
+  border: 2px black solid;
+  height: 40px;
+  width: 20%;
+  font-size: 30px;
+  border-radius: 10px;
+  padding: 10px;
+`;
 export {
   SellContent,
   LeftImg,
@@ -113,4 +121,5 @@ export {
   PropertiesTitle,
   PropertiesContent,
   PropertiesSub,
+  SellInput,
 };

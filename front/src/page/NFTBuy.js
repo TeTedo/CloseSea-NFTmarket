@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import NftImg from "image/index";
 import {
   SellContent,
   LeftImg,
@@ -11,23 +10,33 @@ import {
   RightBuyContent,
   RightBuyText,
   RightBuyPrice,
-  RightBuyBtn,
   RightNftProperties,
   RightNftPropertiesText,
 } from "component/NFTBuy/NFTBuyStyled";
 import PropertiesComnent from "component/NFTBuy/PropertiesComnent";
-
+import { Context } from "App";
+import Button from "component/NFTBuy/Button";
 function NFTBuy() {
+  const { NFT, account } = useContext(Context);
   const params = useParams();
   const id = params.id;
+  const price = params.price;
+  const [owner, setOwner] = useState();
+  useEffect(() => {
+    (async () => {
+      if (!NFT) return;
+      const owner = await NFT.instance.methods.ownerOf(id).call();
+      setOwner(owner);
+    })();
+  }, [NFT]);
   return (
     <SellContent>
       <LeftContent>
-        <LeftImg src={NftImg[id]} alt="" />
+        <LeftImg src={`/image/${id}.png`} alt="" />
       </LeftContent>
       <RightContnent>
-        <RightTitle>Mask Man #</RightTitle>
-        <RightSub>Owned by (닉네임)</RightSub>
+        <RightTitle>Mask Man #{id === "0" ? "100" : id}</RightTitle>
+        <RightSub>Owned by {owner}</RightSub>
         <RightNftPropertiesText>Properties</RightNftPropertiesText>
         <RightNftProperties>
           <PropertiesComnent title="BACKGROUND" content="Blue" />
@@ -38,8 +47,14 @@ function NFTBuy() {
         </RightNftProperties>
         <RightBuyContent>
           <RightBuyText>Current price</RightBuyText>
-          <RightBuyPrice>8.1123 ETH</RightBuyPrice>
-          <RightBuyBtn>Buy</RightBuyBtn>
+          <RightBuyPrice>{price / 10 ** 18} ZOL</RightBuyPrice>
+          {owner && account === owner.toLowerCase() ? (
+            <Button id={id} type="cancel" />
+          ) : account ? (
+            <Button id={id} type="buy" />
+          ) : (
+            ""
+          )}
         </RightBuyContent>
       </RightContnent>
     </SellContent>

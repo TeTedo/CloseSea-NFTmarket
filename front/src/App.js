@@ -45,8 +45,25 @@ function App() {
       setNftTrade(tempArr[2]);
     })();
   }, [web3]);
+  // 로딩 애니메이션 관련
+  const [display, setDisplay] = useState(0);
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    if (loading) {
+      setDisplay("block");
+    } else {
+      setDisplay("none");
+    }
+  }, [loading]);
+  // 이벤트 감지해서 로딩창 띄우기
+
   return (
     <div className="App">
+      <div className="loading" style={{ display }}>
+        <div>
+          <img src="/loadingAnimation.gif" alt="" />
+        </div>
+      </div>
       <Context.Provider
         value={{
           account,
@@ -54,6 +71,7 @@ function App() {
           Token: token,
           NFT: nft,
           NFTtrade: nftTrade,
+          setLoading,
         }}
       >
         <MenuBar setAccount={setAccount} setWeb3={setWeb3} />
@@ -63,8 +81,8 @@ function App() {
           <Route path="/exchange" element={<Exchange />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/swap" element={<Swap />} />
-          <Route path="/nftbuy/:id" element={<NFTBuy />} />
-          <Route path="/mynft/:id" element={<MyNFT />} />
+          <Route path="/nftbuy/:id/:price" element={<NFTBuy />} />
+          <Route path="/mynft/:id/:price" element={<MyNFT />} />
           <Route path="/mypage" element={<Mypage />} />
           <Route path="/sell" element={<Sell />} />
         </Routes>

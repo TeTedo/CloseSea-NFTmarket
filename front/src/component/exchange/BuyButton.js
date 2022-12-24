@@ -1,13 +1,17 @@
-import React, { useContext } from "react";
+import React from "react";
 import { NFTBuyBtn } from "./ExchangeStyled";
-import { Context } from "App";
-const BuyButton = ({ id }) => {
-  const { account, NftTrade } = useContext(Context);
-  const buyNFT = async () => {
-    await NftTrade.instance.methods.purchaseToken(id);
-    console.log(account);
-  };
-  return <NFTBuyBtn onClick={buyNFT}>⚡️Buy Now</NFTBuyBtn>;
+import { useNavigate } from "react-router-dom";
+const BuyButton = ({ id, price }) => {
+  const navigate = useNavigate();
+  return (
+    <NFTBuyBtn
+      onClick={() => {
+        navigate(`/nftbuy/${id}/${price}`);
+      }}
+    >
+      ⚡️Buy Now
+    </NFTBuyBtn>
+  );
 };
 
 export default BuyButton;

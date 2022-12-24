@@ -21,7 +21,6 @@ contract NFTtrade{
 
     // 판매등록
     function salesToken(uint _tokenId, uint _price) public{
-        nft.setApprovalForAll(nft.getCA(), true);
         address tokenOwner = nft.ownerOf(_tokenId);
         require(tokenOwner == msg.sender);
         require(_price > 0 );
@@ -33,11 +32,10 @@ contract NFTtrade{
     // NFT구매
     function purchaseToken(uint _tokenId) public{
         address tokenOwner = nft.ownerOf(_tokenId);
-
-        require(tokenOwner != msg.sender);
-        require(tokenPrices[_tokenId] > 0);
+        require(tokenOwner != msg.sender, "You can't buy your own NFT!");
+        require(tokenPrices[_tokenId] > 0,"This NFT is not for sale!");
         // 가격 체크하는곳
-        require(coin.checkCoinBalance(msg.sender) > tokenPrices[_tokenId]);
+        require(coin.checkCoinBalance(msg.sender) >= tokenPrices[_tokenId], "Not enough seed!");
         coin.mintNft(msg.sender, tokenPrices[_tokenId]);
         nft.transferFrom(tokenOwner, msg.sender, _tokenId);
         tokenPrices[_tokenId] = 0;
@@ -45,11 +43,15 @@ contract NFTtrade{
     }
 
     // 판매리스트 제거
-    function popSaleToken(uint _tokenId) private returns (bool){
+    function popSaleToken(uint _tokenId) public returns (bool){
+        address tokenOwner = nft.ownerOf(_tokenId);
+        require(tokenOwner == msg.sender, "You are not Token owner!");
+
         for(uint i = 0; i < SaleTokenList.length; i++){
             if(SaleTokenList[i] == _tokenId){
                 SaleTokenList[i] = SaleTokenList[SaleTokenList.length -1];
                 SaleTokenList.pop();
+                tokenPrices[_tokenId] = 0;
                 return true;
             }
         }

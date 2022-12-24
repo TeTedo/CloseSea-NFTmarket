@@ -8,29 +8,42 @@ import {
   RightSub,
   RightNftProperties,
   RightNftPropertiesText,
+  RightBuyContent,
+  RightBuyText,
+  RightBuyPrice,
+  RightBuyBtn,
+  SellInput,
 } from "component/NFTBuy/NFTBuyStyled";
 import PropertiesComnent from "component/NFTBuy/PropertiesComnent";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Context } from "App";
+import Button from "component/NFTBuy/Button";
+import SellButton from "component/Sell/SellButton";
 function MyNFT() {
-  const { NFT } = useContext(Context);
-  const parmas = useParams();
-  const id = parmas.id;
+  const { NFT, account } = useContext(Context);
+  const params = useParams();
+  const id = params.id;
+  const price = params.price;
   const [owner, setOwner] = useState();
+  const [sellPrice, setSellPrice] = useState("");
+  const navigate = useNavigate();
   useEffect(() => {
     (async () => {
       if (!NFT) return;
-      const owner = await NFT.instance.methods.findTokenOwner(id).call();
+      const owner = await NFT.instance.methods.ownerOf(id).call();
       setOwner(owner);
     })();
   }, [NFT]);
+  useEffect(() => {
+    if (!account) navigate("/");
+  }, []);
   return (
     <SellContent>
       <LeftContent>
         <LeftImg src={`/image/${id}.png`} alt="" />
       </LeftContent>
       <RightContnent>
-        <RightTitle>Mask Man #{id}</RightTitle>
+        <RightTitle>Mask Man #{id === "0" ? "100" : id}</RightTitle>
         <RightSub>Owned by {owner}</RightSub>
         <RightNftPropertiesText>Properties</RightNftPropertiesText>
         <RightNftProperties>
@@ -40,6 +53,25 @@ function MyNFT() {
           <PropertiesComnent title="HEADER" content="Header" />
           <PropertiesComnent title="MOUSE" content="Smile" />
         </RightNftProperties>
+        {owner && price === "0" ? (
+          <>
+            <div>
+              <SellInput
+                placeholder="price"
+                onChange={(e) => {
+                  setSellPrice(e.target.value);
+                }}
+              />
+            </div>
+            <SellButton tokenId={id} price={sellPrice} Com={RightBuyBtn} />
+          </>
+        ) : (
+          <RightBuyContent>
+            <RightBuyText>Current price</RightBuyText>
+            <RightBuyPrice>{price / 10 ** 18} ZOL</RightBuyPrice>
+            <Button id={id} type="cancel" />
+          </RightBuyContent>
+        )}
       </RightContnent>
     </SellContent>
   );

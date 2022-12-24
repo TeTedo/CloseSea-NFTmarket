@@ -9,19 +9,20 @@ import ExchangeComponent from "component/exchange/ExchangeComponent";
 import { useNavigate } from "react-router-dom";
 import { Context } from "App";
 const Exchange = () => {
-  const { NFTtrade } = useContext(Context);
+  const { NFTtrade, setLoading, account } = useContext(Context);
   const navigate = useNavigate();
   const [list, setList] = useState([]);
   const [listData, setListData] = useState([]);
   useEffect(() => {
     if (!NFTtrade) return;
-
+    setLoading(true);
     (async () => {
       const list = await NFTtrade.instance.methods
         .getSaleTokenList()
         .call()
         .catch(() => {
           alert("판매중인 NFT가 없습니다.");
+          setLoading(false);
         });
       if (list) setList(list);
     })();
@@ -33,6 +34,7 @@ const Exchange = () => {
       list.forEach(async (v) => {
         temp.push({ price: v.price, id: v.tokenId });
       });
+      setLoading(false);
       setListData(temp);
     })();
   }, [list]);
@@ -40,13 +42,15 @@ const Exchange = () => {
     <ExchangePosition>
       <ExchangeTitle>
         NFT Shop
-        <SellBtn
-          onClick={() => {
-            navigate("/sell");
-          }}
-        >
-          Sell
-        </SellBtn>
+        {account && (
+          <SellBtn
+            onClick={() => {
+              navigate("/sell");
+            }}
+          >
+            Sell
+          </SellBtn>
+        )}
       </ExchangeTitle>
       <ExchangeContent>
         {listData.map((v, idx) => (

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import {
   SwapWrap,
   SwapTop,
@@ -13,7 +13,9 @@ import {
 } from "./SwapStyled";
 import SwapButton from "./SwapButton";
 import ZOLsym from "image/4.png";
+import { Context } from "App";
 const SwapToken = () => {
+  const { Token } = useContext(Context);
   const [pos, setPos] = useState(true);
   const [up, setUp] = useState({});
   const [down, setDown] = useState({});
@@ -97,6 +99,8 @@ const SwapToken = () => {
           <div>수수료</div>
           <div>5%</div>
         </Fee>
+        <div style={{ marginTop: "10px" }}>ContractAddress</div>
+        <div>{Token && Token.CA ? Token.CA : ""}</div>
         <SwapButton up={up} down={down} />
       </SwapBot>
     </SwapWrap>

@@ -13,10 +13,12 @@ import {
   SellCotent,
   MyNFTTitle,
   ChoiceNFT,
+  SellBtn,
 } from "component/Sell/SellStyled";
 import SellButton from "component/Sell/SellButton";
 import { CollectedContent } from "component/MyPage/MypageSyled";
 import { Context } from "App";
+import { useNavigate } from "react-router-dom";
 const Sell = () => {
   const [sellImg, setSellImg] = useState("");
   const [tokenId, setTokenId] = useState("");
@@ -24,6 +26,10 @@ const Sell = () => {
   const { account, NFTtrade } = useContext(Context);
   const [list, setList] = useState([]);
   const [listData, setListData] = useState([]);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!account) navigate("/");
+  }, []);
   useEffect(() => {
     if (!NFTtrade) return;
     if (!account) return;
@@ -43,6 +49,7 @@ const Sell = () => {
     })();
     setListData(temp);
   }, [list]);
+
   const MySrc = (e) => {
     setTokenId(e.target.dataset.id);
     setSellImg(e.target.src);
@@ -56,11 +63,12 @@ const Sell = () => {
           </SellLeftDiv>
           <SellRightDiv>
             <SellRightTitle>
-              {tokenId ? `${+tokenId + 1}번 쫄` : ""}
+              {tokenId ? `${tokenId === "0" ? 100 : tokenId}번 쫄` : ""}
             </SellRightTitle>
             <SellRightContent>ZOL</SellRightContent>
             <SellRightContent style={{ margin: "20px 0" }}>
-              owner : {account.slice(0, 5)}...{account.slice(37)}
+              owner : {account && account.slice(0, 5)}...
+              {account && account.slice(37)}
             </SellRightContent>
             <SellRightContent>
               <SellInput
@@ -71,7 +79,7 @@ const Sell = () => {
               ></SellInput>
             </SellRightContent>
             <SellText></SellText>
-            <SellButton tokenId={tokenId} price={price} />
+            <SellButton tokenId={tokenId} price={price} Com={SellBtn} />
           </SellRightDiv>
         </SellTitleDiv>
       </SellWrap>

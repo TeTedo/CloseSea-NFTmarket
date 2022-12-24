@@ -11,8 +11,10 @@ const Wrap = styled.div`
 // navbar추가되면 이거 위치 옮기면 됨
 const Container = styled.div`
   width: 1200px;
-  height: 500px;
+  height: 530px;
   display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const GraphWrap = styled.div`

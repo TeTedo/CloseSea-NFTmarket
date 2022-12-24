@@ -28,6 +28,9 @@ function Mypage() {
     });
     setListData(temp);
   }, [list]);
+  useEffect(() => {
+    if (!account) navigate("/");
+  }, []);
   return (
     <MyPageContent>
       <AccountText>{account}</AccountText>
@@ -39,7 +42,7 @@ function Mypage() {
             key={idx}
             price={v.price}
             onClick={() => {
-              navigate("/mynft/" + v.id);
+              navigate(`/mynft/${v.id}/${v.price}`);
             }}
           />
         ))}
