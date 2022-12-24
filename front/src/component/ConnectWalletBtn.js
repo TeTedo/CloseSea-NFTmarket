@@ -9,9 +9,11 @@ const ConnectWalletBtn = ({ setAccount }) => {
   const connectWallet = async () => {
     const account = await getRequestAccount();
     setAccount(account);
+    localStorage.setItem("account", account);
     window.ethereum.on("accountsChanged", async () => {
       const account = await getRequestAccount();
       setAccount(account);
+      localStorage.setItem("account", account);
     });
   };
 

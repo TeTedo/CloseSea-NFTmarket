@@ -23,20 +23,34 @@ const Sell = () => {
   const [sellImg, setSellImg] = useState("");
   const [tokenId, setTokenId] = useState("");
   const [price, setPrice] = useState("");
-  const { account, NFTtrade } = useContext(Context);
+  const { account, NFTtrade, setAccount } = useContext(Context);
   const [list, setList] = useState([]);
   const [listData, setListData] = useState([]);
   const navigate = useNavigate();
   useEffect(() => {
-    if (!account) navigate("/");
+    (async () => {
+      const getAccount = localStorage.getItem("account");
+      const [metaAccount] = await window.ethereum.request({
+        method: "eth_requestAccounts",
+      });
+      if (getAccount === metaAccount) {
+        setAccount(getAccount);
+      } else {
+        navigate("/");
+      }
+    })();
   }, []);
   useEffect(() => {
     if (!NFTtrade) return;
     if (!account) return;
     (async () => {
-      setList(await NFTtrade.instance.methods.getOwnerToken(account).call());
+      setList(
+        await NFTtrade.instance.methods
+          .getOwnerToken(localStorage.getItem("account"))
+          .call()
+      );
     })();
-  }, [NFTtrade]);
+  }, [NFTtrade, account]);
   useEffect(() => {
     if (!list.length) return;
     let temp = [];
@@ -59,7 +73,7 @@ const Sell = () => {
       <SellWrap>
         <SellTitleDiv>
           <SellLeftDiv>
-            <SellIMG src={sellImg} />
+            <SellIMG src={sellImg || `/scan.gif`} />
           </SellLeftDiv>
           <SellRightDiv>
             <SellRightTitle>
@@ -67,8 +81,7 @@ const Sell = () => {
             </SellRightTitle>
             <SellRightContent>ZOL</SellRightContent>
             <SellRightContent style={{ margin: "20px 0" }}>
-              owner : {account && account.slice(0, 5)}...
-              {account && account.slice(37)}
+              owner : Me
             </SellRightContent>
             <SellRightContent>
               <SellInput

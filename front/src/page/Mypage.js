@@ -9,7 +9,7 @@ import NFTComponent from "component/MyPage/NFTComponent";
 import { Context } from "App";
 import { useNavigate } from "react-router-dom";
 function Mypage() {
-  const { account, NFTtrade } = useContext(Context);
+  const { account, NFTtrade, setAccount } = useContext(Context);
   const [list, setList] = useState([]);
   const [listData, setListData] = useState([]);
   const navigate = useNavigate();
@@ -17,9 +17,13 @@ function Mypage() {
     if (!NFTtrade) return;
     if (!account) return;
     (async () => {
-      setList(await NFTtrade.instance.methods.getOwnerToken(account).call());
+      setList(
+        await NFTtrade.instance.methods
+          .getOwnerToken(localStorage.getItem("account"))
+          .call()
+      );
     })();
-  }, [NFTtrade]);
+  }, [NFTtrade, account]);
   useEffect(() => {
     if (!list.length) return;
     const temp = [];
@@ -29,7 +33,17 @@ function Mypage() {
     setListData(temp);
   }, [list]);
   useEffect(() => {
-    if (!account) navigate("/");
+    (async () => {
+      const getAccount = localStorage.getItem("account");
+      const [metaAccount] = await window.ethereum.request({
+        method: "eth_requestAccounts",
+      });
+      if (getAccount === metaAccount) {
+        setAccount(getAccount);
+      } else {
+        navigate("/");
+      }
+    })();
   }, []);
   return (
     <MyPageContent>

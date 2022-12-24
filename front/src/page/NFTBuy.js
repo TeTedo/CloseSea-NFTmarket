@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import {
   SellContent,
   LeftImg,
@@ -22,6 +22,7 @@ function NFTBuy() {
   const id = params.id;
   const price = params.price;
   const [owner, setOwner] = useState();
+  const navigate = useNavigate();
   useEffect(() => {
     (async () => {
       if (!NFT) return;
@@ -29,6 +30,9 @@ function NFTBuy() {
       setOwner(owner);
     })();
   }, [NFT]);
+  useEffect(() => {
+    if (!account) navigate("/");
+  }, []);
   return (
     <SellContent>
       <LeftContent>

@@ -29,6 +29,22 @@ function App() {
       const web3 = new Web3(window.ethereum);
       setWeb3(web3);
     }
+    (async () => {
+      const getAccount = localStorage.getItem("account");
+      const [metaAccount] = await window.ethereum.request({
+        method: "eth_requestAccounts",
+      });
+      if (getAccount === metaAccount) {
+        setAccount(getAccount);
+        window.ethereum.on("accountsChanged", async () => {
+          const account = await window.ethereum.request({
+            method: "eth_requestAccounts",
+          });
+          setAccount(account);
+          localStorage.setItem("account", account);
+        });
+      }
+    })();
   }, []);
   useEffect(() => {
     const contracts = [Token, NFT, NFTtrade];
@@ -72,6 +88,7 @@ function App() {
           NFT: nft,
           NFTtrade: nftTrade,
           setLoading,
+          setAccount,
         }}
       >
         <MenuBar setAccount={setAccount} setWeb3={setWeb3} />

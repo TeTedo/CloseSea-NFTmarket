@@ -10,8 +10,11 @@ const MintingButton = ({ mintAmount }) => {
       .send({
         from: account,
       })
+      .then(() => {
+        alert("민팅 성공!");
+      })
       .catch(() => {
-        setLoading(false);
+        alert("민팅 실패");
       });
     setLoading(false);
   };

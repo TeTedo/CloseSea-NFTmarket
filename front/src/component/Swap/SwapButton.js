@@ -18,7 +18,7 @@ const SwapButton = ({ up }) => {
           alert("교환 성공!");
         })
         .catch(() => {
-          alert("교환을 취소하였습니다.");
+          alert("교환 실패!");
         });
     } else {
       // ZOL -> 이더 스왑
@@ -31,7 +31,7 @@ const SwapButton = ({ up }) => {
           alert("교환 성공!");
         })
         .catch(() => {
-          alert("교환을 취소하였습니다.");
+          alert("교환 실패!");
         });
     }
     setLoading(false);
