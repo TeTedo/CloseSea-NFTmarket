@@ -12,7 +12,7 @@ const SwapButton = ({ up }) => {
         .buyToken()
         .send({
           from: account,
-          value: up.value * 10 ** 18,
+          value: `${up.value * 10 ** 18}`,
         })
         .then(() => {
           alert("교환 성공!");

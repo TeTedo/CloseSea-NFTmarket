@@ -16,6 +16,7 @@ import {
 import PropertiesComnent from "component/NFTBuy/PropertiesComnent";
 import { Context } from "App";
 import Button from "component/NFTBuy/Button";
+import metaData from "public/metadata.json";
 function NFTBuy() {
   const { NFT, account } = useContext(Context);
   const params = useParams();
@@ -43,11 +44,13 @@ function NFTBuy() {
         <RightSub>Owned by {owner}</RightSub>
         <RightNftPropertiesText>Properties</RightNftPropertiesText>
         <RightNftProperties>
-          <PropertiesComnent title="BACKGROUND" content="Blue" />
-          <PropertiesComnent title="EYES" content="Smile" />
-          <PropertiesComnent title="FACE" content="Blue" />
-          <PropertiesComnent title="HEADER" content="Header" />
-          <PropertiesComnent title="MOUSE" content="Smile" />
+          {metaData[id].attributes.map((v, idx) => (
+            <PropertiesComnent
+              key={idx}
+              title={v.trait_type}
+              content={v.value}
+            />
+          ))}
         </RightNftProperties>
         <RightBuyContent>
           <RightBuyText>Current price</RightBuyText>

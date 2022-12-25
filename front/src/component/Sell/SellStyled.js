@@ -62,8 +62,6 @@ const SellRightContent = styled.div`
   font-weight: 500;
 `;
 
-const SellText = styled.text``;
-
 const SellBtn = styled.button`
   margin: 20px 0;
   padding: 10px 40px;
@@ -100,7 +98,6 @@ export {
   SellLeftDiv,
   SellRightDiv,
   SellInput,
-  SellText,
   SellRightTitle,
   SellRightContent,
   SellBtn,

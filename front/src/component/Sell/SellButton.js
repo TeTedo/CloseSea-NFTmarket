@@ -3,6 +3,10 @@ import { Context } from "App";
 const SellButton = ({ tokenId, price, Com }) => {
   const { account, NFTtrade, NFT, setLoading } = useContext(Context);
   const sell = async () => {
+    if (!tokenId) {
+      alert("NFT를 선택해주세요.");
+      return;
+    }
     setLoading(true);
     let tempApprove = await NFT.instance.methods
       .isApprovedForAll(account, NFTtrade.CA)
@@ -34,7 +38,6 @@ const SellButton = ({ tokenId, price, Com }) => {
     }
     setLoading(false);
   };
-
   return <Com onClick={sell}>Sell</Com>;
 };
 

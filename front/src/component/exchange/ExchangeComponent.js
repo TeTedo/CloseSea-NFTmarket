@@ -13,7 +13,7 @@ function ExchangeComponent(props) {
       <NFTPictureSize>
         <NFTPicture src={`/image/${props.id}.png`} />
       </NFTPictureSize>
-      <NFTNumber>{+props.id + 1}번 쫄</NFTNumber>
+      <NFTNumber>{props.id}번 쫄</NFTNumber>
       <NFTPrice>가격 : {props.price / 10 ** 18} ZOL</NFTPrice>
       <BuyButton id={props.id} price={props.price} />
     </NFTBox>

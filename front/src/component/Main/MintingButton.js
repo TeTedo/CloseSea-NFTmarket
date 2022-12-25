@@ -4,6 +4,10 @@ import { Context } from "App";
 const MintingButton = ({ mintAmount }) => {
   const { account, NFT, setLoading } = useContext(Context);
   const minting = async () => {
+    if (mintAmount === 0) {
+      alert("민트 수량을 입력해주세요.");
+      return;
+    }
     setLoading(true);
     await NFT.instance.methods
       ._minting(mintAmount)

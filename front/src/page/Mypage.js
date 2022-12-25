@@ -17,11 +17,11 @@ function Mypage() {
     if (!NFTtrade) return;
     if (!account) return;
     (async () => {
-      setList(
-        await NFTtrade.instance.methods
-          .getOwnerToken(localStorage.getItem("account"))
-          .call()
-      );
+      const list = await NFTtrade.instance.methods
+        .getOwnerToken(localStorage.getItem("account"))
+        .call()
+        .catch(() => alert("보유중인 nft가 없습니다."));
+      if (list) setList(list);
     })();
   }, [NFTtrade, account]);
   useEffect(() => {

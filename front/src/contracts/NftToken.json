@@ -3,7 +3,7 @@
     "version": "0.8.17+commit.8df45f5f"
   },
   "language": "Solidity",
-  "CA": "0xBB7a7bF2c9b7ffC46dA97b69CB198b7AcdA61DB9",
+  "CA": "0x1e3E5cC84004274eB6A30F6586A6CE38aa65b5cD",
   "output": {
     "abi": [
       {
@@ -827,19 +827,19 @@
       ]
     },
     "NftToken.sol": {
-      "keccak256": "0x9757ed648330bf6a850e8394a743b9a74f57a3edf91caf82e3c457411f987f92",
+      "keccak256": "0xb58ba7cf71ea0f6bc721fffece711c527a6090710e95a99c2f01d5dad37eb5de",
       "license": "MIT",
       "urls": [
-        "bzz-raw://9b5859472aa78744a8fe7ef16051f0589b0d416e4178d7e5f8d1a3249d5f184c",
-        "dweb:/ipfs/Qme8o2og5J5zCoZGyiABjg7xvVxYbQxqSTyFcZArJpjhy9"
+        "bzz-raw://ce792a5370a9bb4ab55bcccefce5e54ece4878bb724f55897a2c4387b757fe94",
+        "dweb:/ipfs/QmStp3NW8kvJgA5smyAeaa7qnhXgmdu7nqpWUwxE5YDpEh"
       ]
     },
     "Token.sol": {
-      "keccak256": "0xa3eb7f7b39fa9be80003c85abcf6f188376118c15f33f224b66615b25677c18c",
+      "keccak256": "0x0cbe8cc81d27be597bf1e0f0d5382732993fd50904ce8d6a61abe46561f3f512",
       "license": "MIT",
       "urls": [
-        "bzz-raw://2f5051b3ab749a76ef48a965e09c12b88348e195f0675c3b894102effc142496",
-        "dweb:/ipfs/QmdjseLgx9CtXC5zHx8acypFzkGfGnDUZsmdUvYc9kq4CS"
+        "bzz-raw://179dc490be3039876813271890b5b0ba4e2579dd766536a66d7bd729191b2b6f",
+        "dweb:/ipfs/Qma9zYsx5J4dXoW5eVbXq63HEjB2peayU17nLYvfH7DZgd"
       ]
     }
   },

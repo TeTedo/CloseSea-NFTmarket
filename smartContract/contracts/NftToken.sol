@@ -9,7 +9,7 @@ import "./ERC721A.sol";
 import "./Token.sol";
 contract NftToken is Ownable, ERC721A{
     uint public maxTokenNum;
-    uint public mintPrice = 1 * 10**18;
+    uint public mintPrice = 50 * 10**18;
     uint mintLimit;
     Token public coin;
     mapping(address => uint256) public mintCount;

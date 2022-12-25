@@ -7,7 +7,6 @@ import {
   SellRightTitle,
   SellWrap,
   SellInput,
-  SellText,
   SellRightContent,
   MyNFTContent,
   SellCotent,
@@ -44,11 +43,11 @@ const Sell = () => {
     if (!NFTtrade) return;
     if (!account) return;
     (async () => {
-      setList(
-        await NFTtrade.instance.methods
-          .getOwnerToken(localStorage.getItem("account"))
-          .call()
-      );
+      const list = await NFTtrade.instance.methods
+        .getOwnerToken(localStorage.getItem("account"))
+        .call()
+        .catch(() => alert("보유중인 nft가 없습니다."));
+      if (list) setList(list);
     })();
   }, [NFTtrade, account]);
   useEffect(() => {
@@ -91,7 +90,6 @@ const Sell = () => {
                 }}
               ></SellInput>
             </SellRightContent>
-            <SellText></SellText>
             <SellButton tokenId={tokenId} price={price} Com={SellBtn} />
           </SellRightDiv>
         </SellTitleDiv>

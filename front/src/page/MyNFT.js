@@ -19,6 +19,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Context } from "App";
 import Button from "component/NFTBuy/Button";
 import SellButton from "component/Sell/SellButton";
+import metaData from "public/metadata.json";
 function MyNFT() {
   const { NFT, account } = useContext(Context);
   const params = useParams();
@@ -31,6 +32,7 @@ function MyNFT() {
     (async () => {
       if (!NFT) return;
       const owner = await NFT.instance.methods.ownerOf(id).call();
+
       setOwner(owner);
     })();
   }, [NFT]);
@@ -47,11 +49,13 @@ function MyNFT() {
         <RightSub>Owned by {owner}</RightSub>
         <RightNftPropertiesText>Properties</RightNftPropertiesText>
         <RightNftProperties>
-          <PropertiesComnent title="BACKGROUND" content="Blue" />
-          <PropertiesComnent title="EYES" content="Smile" />
-          <PropertiesComnent title="FACE" content="Blue" />
-          <PropertiesComnent title="HEADER" content="Header" />
-          <PropertiesComnent title="MOUSE" content="Smile" />
+          {metaData[id].attributes.map((v, idx) => (
+            <PropertiesComnent
+              key={idx}
+              title={v.trait_type}
+              content={v.value}
+            />
+          ))}
         </RightNftProperties>
         {owner && price === "0" ? (
           <>
