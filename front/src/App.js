@@ -31,8 +31,7 @@ function App() {
     }
     (async () => {
       const getAccount = localStorage.getItem("account");
-      if(getAccount){
-
+      if (getAccount) {
         const [metaAccount] = await window.ethereum.request({
           method: "eth_requestAccounts",
         });
