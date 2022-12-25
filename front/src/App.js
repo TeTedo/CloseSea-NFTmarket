@@ -43,9 +43,37 @@ function App() {
           setAccount(account);
           localStorage.setItem("account", account);
         });
+        setLoading(true);
+        await window.ethereum
+          .request({
+            jsonrpc: "2.0",
+            method: "wallet_switchEthereumChain",
+            params: [{ chainId: "0x5" }],
+          })
+          .catch(() => {
+            alert("goerli 네트워크에서만 사용가능");
+          });
+        setLoading(false);
+        window.ethereum.on("chainChanged", async function (networkId) {
+          if (networkId !== "0x5") {
+            setLoading(true);
+            await window.ethereum
+              .request({
+                id: 1,
+                jsonrpc: "2.0",
+                method: "wallet_switchEthereumChain",
+                params: [{ chainId: "0x5" }],
+              })
+              .catch(() => {
+                alert("goerli 네트워크에서만 사용가능");
+              });
+            setLoading(false);
+          }
+        });
       }
     })();
   }, []);
+
   useEffect(() => {
     const contracts = [Token, NFT, NFTtrade];
     (async () => {
