@@ -31,45 +31,48 @@ function App() {
     }
     (async () => {
       const getAccount = localStorage.getItem("account");
-      const [metaAccount] = await window.ethereum.request({
-        method: "eth_requestAccounts",
-      });
-      if (getAccount === metaAccount) {
-        setAccount(getAccount);
-        window.ethereum.on("accountsChanged", async () => {
-          const account = await window.ethereum.request({
-            method: "eth_requestAccounts",
-          });
-          setAccount(account);
-          localStorage.setItem("account", account);
+      if(getAccount){
+
+        const [metaAccount] = await window.ethereum.request({
+          method: "eth_requestAccounts",
         });
-        setLoading(true);
-        await window.ethereum
-          .request({
-            jsonrpc: "2.0",
-            method: "wallet_switchEthereumChain",
-            params: [{ chainId: "0x5" }],
-          })
-          .catch(() => {
-            alert("goerli 네트워크에서만 사용가능");
+        if (getAccount === metaAccount) {
+          setAccount(getAccount);
+          window.ethereum.on("accountsChanged", async () => {
+            const account = await window.ethereum.request({
+              method: "eth_requestAccounts",
+            });
+            setAccount(account);
+            localStorage.setItem("account", account);
           });
-        setLoading(false);
-        window.ethereum.on("chainChanged", async function (networkId) {
-          if (networkId !== "0x5") {
-            setLoading(true);
-            await window.ethereum
-              .request({
-                id: 1,
-                jsonrpc: "2.0",
-                method: "wallet_switchEthereumChain",
-                params: [{ chainId: "0x5" }],
-              })
-              .catch(() => {
-                alert("goerli 네트워크에서만 사용가능");
-              });
-            setLoading(false);
-          }
-        });
+          setLoading(true);
+          await window.ethereum
+            .request({
+              jsonrpc: "2.0",
+              method: "wallet_switchEthereumChain",
+              params: [{ chainId: "0x5" }],
+            })
+            .catch(() => {
+              alert("goerli 네트워크에서만 사용가능");
+            });
+          setLoading(false);
+          window.ethereum.on("chainChanged", async function (networkId) {
+            if (networkId !== "0x5") {
+              setLoading(true);
+              await window.ethereum
+                .request({
+                  id: 1,
+                  jsonrpc: "2.0",
+                  method: "wallet_switchEthereumChain",
+                  params: [{ chainId: "0x5" }],
+                })
+                .catch(() => {
+                  alert("goerli 네트워크에서만 사용가능");
+                });
+              setLoading(false);
+            }
+          });
+        }
       }
     })();
   }, []);
