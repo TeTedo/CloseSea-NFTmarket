@@ -6,3 +6,12 @@
 shop
 구매
 shop페이지에서 Sell
+
+c8a7b352f21a8c07fcbd6888e8d730ba9dac4891e993a777a9925a17e8a1fd2c
+0703895aceaee4beda4f2d6d070d34fddd9b00a89166eb49f14f7fd221d1f8f5
+
+주소 메인
+http://ec2-3-35-131-178.ap-northeast-2.compute.amazonaws.com/
+
+임시
+ec2-54-180-118-53.ap-northeast-2.compute.amazonaws.com

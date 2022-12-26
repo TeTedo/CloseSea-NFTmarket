@@ -37,7 +37,7 @@ contract Token is ERC20, Ownable{
     }
     // nft민팅할때 함수
     function mintNft(address _address, uint _price) external {
-        _transfer(_address, address(this), _price);
+        _transfer(_address, owner(), _price);
     }
 
     // get CA
