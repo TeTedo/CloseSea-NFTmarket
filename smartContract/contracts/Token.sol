@@ -11,7 +11,6 @@ contract Token is ERC20, Ownable{
     constructor() ERC20(_name,_symbol){
         _mint(address(this), _totalSupply);
     }
-
     // CA에 이더 받았을때
     receive() external payable{
         require(msg.value != 0, "To small amount!");
@@ -44,7 +43,6 @@ contract Token is ERC20, Ownable{
     function getCoinCA() external view returns(address){
         return address(this);
     }
-
     // 토큰 수량 확인
     function checkCoinBalance(address _address) public view returns(uint256) {
         return balanceOf(_address);
