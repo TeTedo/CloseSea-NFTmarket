@@ -21,6 +21,7 @@ contract NFTtrade{
 
     // 판매등록
     function salesToken(uint _tokenId, uint _price) public{
+        // ownerOf(_tokenId) 토큰 주인 호출
         address tokenOwner = nft.ownerOf(_tokenId);
         require(tokenOwner == msg.sender);
         require(_price > 0 );
