@@ -2,17 +2,78 @@
 
 ## NFT 마켓
 
+http://ec2-3-35-131-178.ap-northeast-2.compute.amazonaws.com/
+
 ### 기간 : 2022.12.19 ~ 2022.12.23
 
-### 개발자 : [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FTeTedo&count_bg=%230D00FF&title_bg=%23000000&icon=darkreader.svg&icon_color=%23FF0000&title=hits&edge_flat=false)](https://github.com/TeTedo)(TeTedO,HanGyeol)
+### 개발자 : [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FTeTedo&count_bg=%230D00FF&title_bg=%23000000&icon=darkreader.svg&icon_color=%23FF0000&title=hits&edge_flat=false)](https://github.com/TeTedo)(TeTedo) 본인 외 2명
 
+### 본인 역할
+
+- **개발환경 최적화**
+
+  - Docker를 이용한 개발환경 통일화
+
+  - eslint, prettier 설정을 통해 코드 포매팅 통일화
+
+- **컨트랙트 작성**
+
+  - Token 컨트랙트 : ERC20을 상속받아 토큰 생성, 거래 컨트랙트
+
+  - ERC721의 가스비 효율을 향상시킨 ERC721A를 사용하여 ERC721 컨트랙트 구현
+
+  - NFTToken 컨트랙트 : ERC721 민팅 컨트랙트
+
+  - NFTTrade 컨트랙트 : ERC721 거래 컨트랙트
+
+- **프론트**
+
+  - 이더리움을 토큰으로 바꿀수 있는 Swap페이지 구현
+
+  - 이더리움 입력시 수수료를 제외하고 받을 토큰의 개수 자동으로 표시
+
+  - 토큰으로 이더리움 교환도 동일한 방식
+
+  - 로딩창 구현
+
+- **지갑연결**
+
+  - 지갑연결 버튼을 통해 메타마스크와 지갑연결
+
+  - goerli testnet 네트워크가 아니라면 메타마스크에 요청하여 네트워크 변경 요청
+
+  - 지갑 변경 Tracking
+
+- **스왑페이지**
+
+  - 이더리움을 토큰으로 바꿀수 있는 Swap페이지 구현
+
+  - 이더리움 입력시 수수료를 제외하고 받을 토큰의 개수 자동으로 표시
+
+  - 토큰으로 이더리움 교환도 동일한 방식
+
+- **web3 연결**
+
+  - 토큰 스왑 : 이더리움 🔁 토큰 스왑
+
+  - 민팅 : 개인당 최대 10개까지 민팅가능
+
+  - 보유한 NFT 확인
+
+  - NFT 거래
+
+  - 판매중인 NFT 확인
+
+- **배포**
+
+  - Docker hub를 이용하여 AWS EC2에 배포
+
+---
 
 ## 목차
 
 - [**개요**](#개요)
   - [Scripts](#Scripts)
-    - [npm install](#npm-install)
-    - [npm start](#npm-start)
 - [**주요 페이지**](#주요-페이지)
   - [MainPage](#Main-Page)
   - [ShopPage](#Shop-Page)
@@ -29,15 +90,23 @@
 
 ## **개요**
 
-## CloseSea 
-NFT 거래소 토이 프로젝트
+### **Scripts**
 
+RUN
+
+```Docker
+docker run -p 80:80 tetedo/closesea
+```
+
+## CloseSea
+
+NFT 거래소 토이 프로젝트
 
 ---
 
 ## 사용 **기술**
 
-<img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white"> <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=CSS3&logoColor=white"> <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=black"> <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=black">
+<img src="https://img.shields.io/badge/styledcomponents-DB7093?style=for-the-badge&logo=styledcomponents&logoColor=white"> <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=CSS3&logoColor=white"> <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=black"> <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=black"> <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=Docker&logoColor=black"> <img src="https://img.shields.io/badge/Solidity-363636?style=for-the-badge&logo=Solidity&logoColor=white"> <img src="https://img.shields.io/badge/Web3.js-F16822?style=for-the-badge&logo=Web3.js&logoColor=white"> <img src="https://img.shields.io/badge/Amazon EC2-FF9900?style=for-the-badge&logo=Amazon EC2&logoColor=black">
 
 ---
 
@@ -67,14 +136,14 @@ NFT 거래소 토이 프로젝트
 
 <br/>
 
-- 거래 페이지 
+- 거래 페이지
 
 <br/>
 <img src='https://user-images.githubusercontent.com/107897972/209748087-7d435ecf-bdb7-4d75-9c46-fc046fe46466.png' />
 
 <br/>
 
-- 판매 페이지 
+- 판매 페이지
 
 <br/>
 
@@ -101,9 +170,7 @@ NFT 거래소 토이 프로젝트
 
 <br/>
 
-
 ### **My Page**
-
 
 <br/>
 
@@ -123,14 +190,63 @@ NFT 거래소 토이 프로젝트
 ## 주요 기능
 
 ### **지갑연결**
+
 ```JS
-
-
+const connectWallet = async () => {
+    const account = await getRequestAccount();
+    setAccount(account);
+    localStorage.setItem("account", account);
+    window.ethereum.on("accountsChanged", async () => {
+      const account = await getRequestAccount();
+      setAccount(account);
+      localStorage.setItem("account", account);
+    });
+  };
 ```
+
+지갑 연결 버튼 클릭시 메타마스크에 account 요청
+
+on 함수를 통해 계정이 변경시 인식하도록 로직 구성
 
 ### **민팅**
 
+```js
+function _minting(uint _mintAmount) public mintRequire(_mintAmount){
+  require(coin.balanceOf(msg.sender) >= mintPrice * _mintAmount, "Insufficient funds!");
+  require(mintCount[msg.sender] + _mintAmount <= mintLimit, "mint limit exceeded");
+  coin.mintNft(msg.sender, mintPrice * _mintAmount);
+
+  _safeMint(msg.sender, _mintAmount);
+}
+
+// nft민팅할때 토큰 보내는 함수
+function mintNft(address _address, uint _price) external {
+    _transfer(_address, owner(), _price);
+}
+```
+
+민팅시 토큰을 owner에게 보내고 민팅한 사람에게 NFT를 보낸다.
+
 ### **거래**
+
+거래를 하기전 front에서 setApprovalForAll 함수로 NFT를 보내는 권한을 준다.
+
+```js
+// NFT구매
+function purchaseToken(uint _tokenId) public{
+  address tokenOwner = nft.ownerOf(_tokenId);
+  require(tokenOwner != msg.sender, "You can't buy your own NFT!");
+  require(tokenPrices[_tokenId] > 0,"This NFT is not for sale!");
+  // 가격 체크하는곳
+  require(coin.checkCoinBalance(msg.sender) >= tokenPrices[_tokenId], "Not enough seed!");
+  coin.mintNft(msg.sender, tokenPrices[_tokenId]);
+  nft.transferFrom(tokenOwner, msg.sender, _tokenId);
+  tokenPrices[_tokenId] = 0;
+  popSaleToken(_tokenId);
+}
+```
+
+## **기타**
 
 ### **PPT**
 
