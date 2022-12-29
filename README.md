@@ -98,6 +98,8 @@ RUN
 docker run -p 80:80 tetedo/closesea
 ```
 
+80번 포트에서 실행
+
 ## CloseSea
 
 NFT 거래소 토이 프로젝트
