@@ -6,7 +6,7 @@ http://ec2-3-35-131-178.ap-northeast-2.compute.amazonaws.com/
 
 ### 기간 : 2022.12.19 ~ 2022.12.23
 
-### 개발자 : [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FTeTedo&count_bg=%230D00FF&title_bg=%23000000&icon=darkreader.svg&icon_color=%23FF0000&title=hits&edge_flat=false)](https://github.com/TeTedo)(TeTedo) 본인 외 2명
+### 개발자 : [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fgjbae1212%2Fhit-counter)](https://github.com/HanGyeol9931)<a href="https://www.notion.so/38f029f575d64814ace22b130119320d"><img src="https://img.shields.io/badge/notion-000000?style=for-the-badge&logo=notion&logoColor=white"></a>(HanGyeol) 본인 외 2명
 
 ### 본인 역할
 
