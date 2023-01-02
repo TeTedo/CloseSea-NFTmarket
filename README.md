@@ -231,3 +231,4 @@ function purchaseToken(uint _tokenId) public{
 ### **PPT**
 
 [발표용ppt(Close Sea).pptx](https://github.com/HanGyeol9931/TeamProject-HoneyBee/files/10311764/261CF148558BF19003.pptx)
+<a href="https://www.notion.so/Close-Sea-cc8cbf96c8814d898cb6eedf9e8c2962">일정 관리</a>
