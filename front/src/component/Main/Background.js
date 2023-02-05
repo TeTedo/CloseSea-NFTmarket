@@ -1,17 +1,16 @@
-import React from 'react'
-import {MainVisual,CircleBox,MainSlideBox,MainCircleInner} from "./BackgroundConponent"
+import React from "react";
+import { MainVisual, MainSlideBox, MainCircleInner } from "./BackgroundStyled.";
 
 function MainBackground() {
   return (
     <div>
-        <MainVisual/>
-        <CircleBox/>
-        <MainSlideBox/>
-        <MainCircleInner>
-          <img src="https://metatoydragonz.io/img/main/main_blink1.png" alt="" />
-        </MainCircleInner>
+      <MainVisual />
+      <MainSlideBox />
+      <MainCircleInner>
+        <img src="https://metatoydragonz.io/img/main/main_blink1.png" alt="" />
+      </MainCircleInner>
     </div>
-  )
+  );
 }
 
-export default MainBackground
+export default MainBackground;

@@ -11,8 +11,9 @@ docker-compose down
 
 리눅스 :
 리눅스는 백,mysql은 도커로, 프론트는 npm start로 직접 실행시켜야 한다.
-docker-compose up mysql back
+docker-compose up --build mysql back
 cd front/
+npm i
 npm start
 
 종료
