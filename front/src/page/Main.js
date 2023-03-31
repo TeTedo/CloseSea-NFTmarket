@@ -55,7 +55,7 @@ function Main() {
           <RightConent>
             <NFTContents opacity={opacity} transform={transform}>
               <NFTImg src="https://play-lh.googleusercontent.com/3_L-KeSNkQhcGCI6C5tGybeqSungirp8aLg0pXKT6eOU7sKubC22HAn5iuxhD-wDpzo" />
-              <NFTImg src="http://blog.lgdisplay.com/lgdisplay/wp-content/uploads/2016/11/20161116_065544.jpg" />
+              <NFTImg src="https://cdn.coindeskkorea.com//news/photo/202108/74962_14086_1316.jpg" />
               <NFTImg src="https://www.coindeskkorea.com/news/photo/202110/75792_15444_5145.jpg" />
               <NFTImg src="https://cdn-static.todayis.io/u_nfts/202202/11/202202111450804092_IMND2v.jpeg" />
               <NFTImg src="http://www.coindeskkorea.com/news/photo/202108/74962_14086_1316.jpg" />
