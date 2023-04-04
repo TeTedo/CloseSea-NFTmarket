@@ -1,6 +1,5 @@
-# <div align="center">**Close Sea**</div>
 
-## NFT 마켓
+## Close Sea
 
 ### 배포주소 : http://ec2-43-201-8-138.ap-northeast-2.compute.amazonaws.com/
 
