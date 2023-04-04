@@ -2,7 +2,7 @@
 
 ## NFT 마켓
 
-###배포주소 : http://ec2-43-201-8-138.ap-northeast-2.compute.amazonaws.com/
+### 배포주소 : http://ec2-43-201-8-138.ap-northeast-2.compute.amazonaws.com/
 
 ### 기간 : 2022.12.19 ~ 2022.12.23
 
